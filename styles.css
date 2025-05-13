@@ -1,0 +1,103 @@
+body {
+    background-color: #D9D9D9;
+}
+
+/* Reset e estilos básicos */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+header {
+    background-color: #730C02;
+    padding: 1.5rem 2rem; /* Aumentei o padding para dar mais espaço */
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column; /* Altera para coluna para empilhar elementos */
+    align-items: center; /* Centraliza os itens horizontalmente */
+}
+
+header h1 {
+    color: #D9D9D9;
+    font-size: 1.0rem;
+    margin-bottom: 0.5 rem; /* Espaço abaixo do título */
+    text-transform: uppercase; /* Opcional: deixa em caixa alta */
+    letter-spacing: 2px; /* Espaçamento entre letras */
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+nav {
+    width: 100%;
+    max-width: 1200px;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    justify-content: center;
+    gap: 2rem;
+    margin-top: 0.5rem; /* Espaço extra acima da navegação */
+}
+
+nav a {
+    color: #D9D9D9;
+    text-decoration: none;
+    font-size: 1.1rem;
+    font-weight: 500;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+nav a:hover {
+    color: #F21905;
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+nav a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    background: #F21905;
+    bottom: 0;
+    left: 0;
+    transition: width 0.3s ease;
+}
+
+nav a:hover::after {
+    width: 100%;
+}
+
+/* Efeito ativo */
+nav a.active {
+    color: #F21905;
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+    header {
+        padding: 1rem;
+    }
+    
+    header h1 {
+        font-size: 1.8rem;
+        margin-bottom: 1rem;
+    }
+    
+    nav ul {
+        flex-wrap: wrap;
+        gap: 0.5rem;
+    }
+    
+    nav a {
+        font-size: 0.9rem;
+        padding: 0.3rem 0.6rem;
+    }
+}
