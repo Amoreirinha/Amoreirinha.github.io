@@ -80,6 +80,206 @@ nav a.active {
     color: #F21905;
 }
 
+.pblack {
+    padding: 20% 0; /* Mantém padding vertical, mas remove o horizontal */
+    display: flex;
+    align-items: center;
+    background-color: #0D0D0D;
+    width: 100%; /* Garante que ocupe toda a largura */
+}
+
+.colum{
+    flex-direction: column;
+}
+
+/* Container interno para centralizar o conteúdo (opcional) */
+.pblack-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+    padding: 0 8%; /* Adiciona padding interno */
+    display: flex;
+    align-items: center;
+}
+
+.pblack img {
+    width: 40%;
+    flex-shrink: 0;
+}
+
+.ibiryprototipo{
+    max-width: 200px ;
+}
+
+.pblack p {
+    margin-left: 5%;
+    padding: 5%;
+    color: #D9D9D9;
+    text-align: justify;
+    font-size: 1.1rem;
+    font-weight: 500;
+    flex: 1;
+}
+
+.pwhite {
+    padding: 15% 0;  /* Padding vertical apenas (remove o horizontal) */
+    display: flex;
+    justify-content: center; /* Centraliza o conteúdo internamente */
+    align-items: center;
+    background-color: #D9D9D9; /* Cor de fundo (se necessário) */
+    width: 100%; /* Ocupa toda a largura */
+}
+
+/* Container interno para centralizar o conteúdo */
+.pwhite-container {
+    max-width: 1200px;
+    width: 100%;
+    padding: 0 8%; /* Padding horizontal interno */
+    display: flex;
+    align-items: center;
+}
+
+.pwhite img {
+    width: 40%;
+    flex-shrink: 0;
+}
+
+.pwhite p {
+    margin-left: 5%;
+    padding: 5%;
+    color: #0D0D0D;
+    text-align: justify;
+    font-size: 1.1rem;
+    font-weight: 500;
+    flex: 1;
+}
+
+/* Estilos base para parágrafos */
+.pwhite p, .pblack p {
+    color: inherit; /* Herda a cor do container */
+    text-align: justify;
+    font-size: 1.1rem;
+    font-weight: 500;
+    margin: 1rem 5%; /* Margem superior e laterais */
+    width: 90%; /* Largura reduzida para melhor leitura */
+}
+
+/* Estilos para listas */
+.pwhite ul, .pblack ul {
+    list-style-type: none;
+    padding-left: 0;
+    margin: 0.5rem 5% 1.5rem; /* Alinhado com os parágrafos */
+    width: 90%;
+}
+
+.pwhite li, .pblack li {
+    margin-bottom: 0.8rem;
+    position: relative;
+    padding-left: 1.8rem; /* Espaço para o marcador */
+    line-height: 1.5;
+    font-weight: 500; /* Negrito */
+    font-size: 1.0rem; /* Fonte menor que parágrafos */
+}
+
+/* Marcadores personalizados */
+.pwhite li::before {
+    content: "•";
+    color: #0D0D0D;
+    font-weight: bold;
+    position: absolute;
+    left: 1rem;
+}
+
+.pblack li::before {
+    content: "•";
+    color: #D9D9D9;
+    font-weight: bold;
+    position: absolute;
+    left: 1rem;
+}
+
+/* Cores específicas */
+.pwhite p, .pwhite li {
+    color: #0D0D0D;
+}
+
+.pblack p, .pblack li {
+    color: #D9D9D9;
+}
+
+/* Estilo dos Cards - Funciona em todos os tamanhos */
+.card {
+    width: 500px;
+    height: 350px;
+    perspective: 1000px;
+    margin: 20px;
+    display: inline-block; /* Permite múltiplos cards na mesma linha */
+}
+
+.card-inner {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.8s;
+    border-radius: 10px;
+}
+
+.card:hover .card-inner {
+    transform: rotateY(180deg);
+}
+
+.card-front, .card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+/* Lado Frontal (Imagem) */
+.card-front {
+    background: transparent;
+    transform: rotateY(0deg);
+    z-index: 2;
+}
+
+.card-front img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Lado Traseiro (Texto) */
+.card-back {
+    background-color: #0D0D0D;
+    color: #D9D9D9;
+    padding: 15px;
+    transform: rotateY(180deg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.card-back p {
+    font-size: 16px;
+    margin: 0;
+    padding: 10px;
+    color: #D9D9D9;
+    text-align: center;
+}
+
+/* Container para os cards */
+.cards-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+}
+
 /* Responsivo */
 @media (max-width: 768px) {
     header {
@@ -100,4 +300,60 @@ nav a.active {
         font-size: 0.9rem;
         padding: 0.3rem 0.6rem;
     }
+
+    .pwhite {
+        padding: 15% 0; /* Ajuste de padding para mobile */
+    }
+
+    .pwhite-container {
+        flex-direction: column; /* Empilha imagem e texto */
+        padding: 0 5%; /* Padding menor em telas pequenas */
+    }
+
+    .pwhite img {
+        width: 80%; /* Imagem maior em mobile */
+        margin-bottom: 20px; /* Espaço entre imagem e texto */
+    }
+
+    .pblack {
+        padding: 15% 0;
+    }
+
+    .pblack-container {
+        flex-direction: column;
+        padding: 0 5%; /* Reduz o padding em telas pequenas */
+    }
+
+    .pblack img {
+        width: 80%;
+        margin-bottom: 20px;
+    }
+
+
+    .pwhite p, .pblack p,
+    .pwhite ul, .pblack ul {
+        margin-left: 0;
+        margin-right: 0;
+        width: 100%;
+        padding: 0 5%;
+    }
+
+    .pwhite li, .pblack li {
+        padding-left: 1.5rem;
+        font-size: 0.95rem;
+    }
+
+    .pwhite li::before,
+    .pblack li::before {
+        left: 0.5rem;
+    }
+
+    .card {
+        width: 500px;
+        height: 300px;
+      }
+      .card-back p {
+        font-size: 14px;
+      }
+
 }
