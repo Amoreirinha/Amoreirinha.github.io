@@ -11,7 +11,8 @@ body {
 }
 
 header {
-    background-color: #730C02;
+    /*background-color: #730C02;*/
+    background-color: #0D0D0D;
     padding: 1.5rem 2rem; /* Aumentei o padding para dar mais espaço */
     position: sticky;
     top: 0;
@@ -105,6 +106,7 @@ nav a.active {
 .pblack img {
     width: 40%;
     flex-shrink: 0;
+    border-radius: 10px;
 }
 
 .ibiryprototipo{
@@ -142,6 +144,7 @@ nav a.active {
 .pwhite img {
     width: 40%;
     flex-shrink: 0;
+    border-radius: 10px;
 }
 
 .pwhite p {
@@ -313,6 +316,7 @@ nav a.active {
     .pwhite img {
         width: 80%; /* Imagem maior em mobile */
         margin-bottom: 20px; /* Espaço entre imagem e texto */
+        border-radius: 10px;
     }
 
     .pblack {
@@ -327,6 +331,7 @@ nav a.active {
     .pblack img {
         width: 80%;
         margin-bottom: 20px;
+        border-radius: 10px;
     }
 
 

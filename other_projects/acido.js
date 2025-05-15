@@ -12,7 +12,7 @@ function calcular() {
     const volumeAcido = (4 * volumeTotal) / 100;
     
     // Calcula a quantidade de sal misturado
-    const quantidadeSalMisturado = (volumeAcido * 1.005) * 84 / 60;
+    const quantidadeSalMisturado = (volumeAcido * 1.05) * 84 / 60;
     
     // Exibe os resultados
     document.getElementById('resultado').innerHTML = `
