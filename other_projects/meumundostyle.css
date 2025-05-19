@@ -1,0 +1,222 @@
+ * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;            
+        }
+
+        .container{
+            margin: 4%;
+            font-family: 'Dancing Script', cursive;
+            background-color: #252323;
+            border-radius: 10px;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            
+        }
+        
+        body {
+            font-family: 'Dancing Script', cursive;
+            background-color: #0D0D0D;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        h1{
+            color:#F23827;
+            padding: 5%;
+            font-size: 2rem;
+        }
+        
+        .carrossel-container {
+            max-width: 600px;
+            width: 100%;
+            margin: 0 auto;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .carrossel {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+        
+        .slide {
+            min-width: 100%;
+            position: relative;
+            aspect-ratio: 1/1; /* Proporção 1:1 */
+        }
+        
+        .slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+        
+        .slide-caption {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            color: white;
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 8px 12px;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+        
+        .carrossel-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            padding: 12px;
+            cursor: pointer;
+            border-radius: 50%;
+            font-size: 16px;
+            z-index: 10;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        #prevBtn {
+            left: 10px;
+        }
+        
+        #nextBtn {
+            right: 10px;
+        }
+        
+        .indicadores {
+            display: flex;
+            justify-content: center;
+            margin-top: 15px;
+            flex-wrap: wrap;
+            gap: 5px;
+            max-width: 600px;
+        }
+        
+        .indicador {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background-color: #ccc;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        
+        .indicador.ativo {
+            background-color: #333;
+        }
+
+        /* Estilos do contador de tempo detalhado */
+        .contador-tempo {
+            margin-top: 40px;
+            text-align: center;
+            width: 100%;
+            max-width: 800px;
+            background-color: rgb(255, 238, 238);
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .contador-tempo h2 {
+            color: #F23827;
+            margin-bottom: 25px;
+            font-size: 1.8em;
+            font-weight: 600;
+        }
+
+        .tempo-container {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .tempo-categoria {
+            flex: 1;
+            min-width: 250px;
+            background-color: #f9f9f9;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .tempo-categoria h3 {
+            color: #333;
+            margin-bottom: 15px;
+            font-size: 1.2em;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 8px;
+        }
+
+        .tempo-relogio {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .tempo-item {
+            text-align: center;
+            margin: 5px;
+        }
+
+        .tempo-valor {
+            font-size: 1.5em;
+            font-weight: bold;
+            color: #F23827;
+            min-width: 50px;
+            padding: 5px 10px;
+            background-color: white;
+            border-radius: 5px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+
+        .tempo-legenda {
+            font-size: 0.8em;
+            color: #666;
+            margin-top: 3px;
+        }
+
+        @media (max-width: 768px) {
+            .tempo-container {
+                flex-direction: column;
+            }
+            
+            .tempo-categoria {
+                min-width: 100%;
+            }
+            
+            .tempo-relogio {
+                justify-content: space-around;
+            }
+        }
+        
+        @media (max-width: 640px) {
+            .carrossel-container {
+                max-width: 400px;
+            }
+            
+            .slide-caption {
+                font-size: 12px;
+                bottom: 10px;
+                left: 10px;
+            }
+        }
+        
+        @media (max-width: 440px) {
+            .carrossel-container {
+                max-width: 300px;
+            }
+        }
