@@ -189,13 +189,13 @@
             margin-top: 3px;
         }
 
-        /* Efeito de corações flutuantes */
+        /* Efeito de corações flutuantes - Versão mobile friendly */
         .hearts-container {
             position: fixed;
             top: 0;
             left: 0;
-            width: 100%;
-            height: 100%;
+            width: 100vw;
+            height: 100vh;
             pointer-events: none;
             z-index: -1;
             overflow: hidden;
@@ -203,23 +203,24 @@
 
         .heart {
             position: absolute;
-            font-size: 20px;
-            color: rgba(231, 76, 60, 0.6);
-            animation: float 6s ease-in infinite;
-            user-select: none;
+            font-size: 24px; /* Tamanho aumentado para mobile */
+            opacity: 0;
+            animation: float linear infinite;
+            will-change: transform; /* Otimização para performance */
+            text-shadow: 0 0 5px rgba(255,255,255,0.5);
         }
 
-        .heart:nth-child(2n) {
-            color: rgba(255, 107, 129, 0.6);
-        }
-
-        .heart:nth-child(3n) {
-            color: rgba(253, 121, 168, 0.6);
-        }
+        /* Cores dos corações */
+        .heart:nth-child(6n+1) { color: #ff6b81; animation-duration: 8s; }
+        .heart:nth-child(6n+2) { color: #ff8fab; animation-duration: 10s; }
+        .heart:nth-child(6n+3) { color: #ffb3c6; animation-duration: 12s; }
+        .heart:nth-child(6n+4) { color: #ffccd5; animation-duration: 14s; }
+        .heart:nth-child(6n+5) { color: #fff0f3; animation-duration: 16s; }
+        .heart:nth-child(6n+6) { color: #ffffff; animation-duration: 18s; }
 
         @keyframes float {
             0% {
-                transform: translateY(100vh) scale(0.5);
+                transform: translate(0, 110vh) scale(0.5);
                 opacity: 0;
             }
             10% {
@@ -229,8 +230,24 @@
                 opacity: 0.8;
             }
             100% {
-                transform: translateY(-10vh) scale(1.2);
+                transform: translate(calc(-50vw + 100px * var(--random-x)), -10vh) scale(1.2);
                 opacity: 0;
+            }
+        }
+
+        /* Ajustes para mobile */
+        @media (max-width: 768px) {
+            .heart {
+                font-size: 28px; /* Tamanho maior em mobile */
+            }
+            
+            @keyframes float {
+                0% {
+                    transform: translate(0, 110vh) scale(0.6);
+                }
+                100% {
+                    transform: translate(calc(-25vw + 50px * var(--random-x)), -10vh) scale(1.3);
+                }
             }
         }
 
