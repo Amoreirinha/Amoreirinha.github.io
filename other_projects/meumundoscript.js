@@ -199,7 +199,7 @@ const fotos = [
     // Criar corações flutuantes - Versão mobile friendly
     function createHearts() {
     const container = document.querySelector('.hearts-container');
-    const numHearts = window.innerWidth < 768 ? 100 : 250; // Menos corações em mobile
+    const numHearts = 250; // Menos corações em mobile
     
     // Limpa corações existentes
     container.innerHTML = '';
