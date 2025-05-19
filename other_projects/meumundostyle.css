@@ -189,6 +189,51 @@
             margin-top: 3px;
         }
 
+        /* Efeito de corações flutuantes */
+        .hearts-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        .heart {
+            position: absolute;
+            font-size: 20px;
+            color: rgba(231, 76, 60, 0.6);
+            animation: float 6s ease-in infinite;
+            user-select: none;
+        }
+
+        .heart:nth-child(2n) {
+            color: rgba(255, 107, 129, 0.6);
+        }
+
+        .heart:nth-child(3n) {
+            color: rgba(253, 121, 168, 0.6);
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(100vh) scale(0.5);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.8;
+            }
+            90% {
+                opacity: 0.8;
+            }
+            100% {
+                transform: translateY(-10vh) scale(1.2);
+                opacity: 0;
+            }
+        }
+
         @media (max-width: 768px) {
             .tempo-container {
                 flex-direction: column;

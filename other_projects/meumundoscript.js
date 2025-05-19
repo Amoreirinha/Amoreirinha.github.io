@@ -195,3 +195,46 @@ const fotos = [
     // Atualizar os contadores imediatamente e a cada segundo
     atualizarTodosContadores();
     setInterval(atualizarTodosContadores, 1000);
+
+
+    // Criar corações flutuantes
+    function createHearts() {
+        const container = document.querySelector('.hearts-container');
+        const numHearts = 100; // Quantidade de corações na tela
+        
+        // Limpa corações existentes
+        container.innerHTML = '';
+        
+        // Cria novos corações
+        for (let i = 0; i < numHearts; i++) {
+            const heart = document.createElement('div');
+            heart.innerHTML = '💕';
+            heart.classList.add('heart');
+            
+            // Posição aleatória
+            const startPositionX = Math.random() * 100;
+            const startPositionY = Math.random() * 100;
+            
+            // Tamanho aleatório
+            const size = 15 + Math.random() * 15;
+            
+            // Duração e delay aleatórios
+            const duration = 5 + Math.random() * 10;
+            const delay = Math.random() * 15;
+            
+            // Aplica os estilos
+            heart.style.left = `${startPositionX}%`;
+            heart.style.top = `${startPositionY}%`;
+            heart.style.fontSize = `${size}px`;
+            heart.style.animationDuration = `${duration}s`;
+            heart.style.animationDelay = `${delay}s`;
+            
+            container.appendChild(heart);
+        }
+    }
+
+    // Inicializa os corações
+    createHearts();
+
+    // Recria os corações se a janela for redimensionada
+    window.addEventListener('resize', createHearts);
