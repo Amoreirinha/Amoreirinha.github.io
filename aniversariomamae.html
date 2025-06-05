@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Feliz Aniversário, Adriana!</title>
+  <link rel="stylesheet" href="other_projects/aniversariomamae.css" />
+</head>
+<body>
+  <header class="hero">
+    <h1>Feliz Aniversário mamãe! 🎉</h1>
+    <p>Hoje, dia 5 de junho, celebramos o seu dia com todo amor do mundo 💖</p>
+  </header>
+
+  <section class="memories">
+    <h2>Momentos Inesquecíveis</h2>
+    <div class="gallery">
+      <div class="memory">
+        <img src="other_projects/midia/image/mãe/foto (1).jpg" alt="Sorriso">
+        <p>Seu sorriso é nossa luz 💫</p>
+      </div>
+      <div class="memory">
+        <img src="other_projects/midia/image/mãe/foto (2).jpg" alt="Família">
+        <p>A família reunida, do jeitinho que você ama 🏡</p>
+      </div>
+      <div class="memory">
+        <img src="other_projects/midia/image/mãe/foto (3).jpg" alt="Você é incrível">
+        <p>Você é uma mulher incrível e bem bobona 💐</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="message">
+    <h2>Uma Mensagem Especial</h2>
+    <p>
+      Mamãe, te amo muito muito muito muito muito muito mesmo!
+      <br>
+      Estou morrendo de saudades e espero que possamos nos encontrar em breve.
+      <br>
+      Tenho muito orgulho e admiração por você e quero que saiba que sou muito grato por tudo que você fez e faz por mim.
+      <br>
+      Você é a melhor mamãe bobona que tenho e espero que tenha um dia maravilhoso, que tenha mais aniversários cheios de saúde e coisas boas.
+      <br>
+    </p>
+  </section>
+
+  <section class="surpresa">
+    <h2>Surpresa para você 🎁</h2>
+    <div class="present-container" onclick="abrirPresente()">
+        <img id="present" class="present" src="other_projects/midia/image/mãe/presente.png" alt="Presente fechado">
+        <p>Clique no presente para abrir!</p>
+        <img id="imagemSurpresa" class="hidden" src="https://i.pinimg.com/736x/0f/8a/1f/0f8a1f590c65558d84fc058659cfd703.jpg" alt="Surpresa">
+    </div>
+  </section>
+
+  <script>
+    function abrirPresente() {
+        const presente = document.getElementById('present');
+        const imagem = document.getElementById('imagemSurpresa');
+
+        presente.classList.add('opening');
+
+        setTimeout(() => {
+        presente.classList.add('hidden');
+        imagem.classList.remove('hidden');
+        imagem.classList.add('fade-in');
+        }, 800);
+    }
+  </script>
+
+  <footer>
+    <p>Com todo nosso amor, seu filho mais velho favorito ❤️</p>
+  </footer>
+</body>
+</html>
