@@ -10,6 +10,14 @@ body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
+body h2{
+    color: #0D0D0D;
+    font-size: 2.25rem;
+    text-align: center;
+    margin: 2rem 0;
+    /* Espaço acima e abaixo do título */
+}
+
 header {
     /*background-color: #730C02;*/
     background-color: #0D0D0D;
@@ -152,13 +160,6 @@ nav a.active {
     /* Ocupa toda a largura */
 }
 
-.pwhite-title {
-    font-size: 2.25rem;
-    font-weight: bold;
-    margin-bottom: 2rem;
-    padding: 10%;
-}
-
 /* Container interno para centralizar o conteúdo */
 .pwhite-container {
     max-width: 1400px;
@@ -291,6 +292,22 @@ nav a.active {
     overflow: visible;
 }
 
+.card3 {
+    width: 300px;
+    height: 450px;
+    border-radius: 20px;
+    background-image: url('midia/image/calculadorafoguetes.jpeg');
+    background-color: #fb85ff75;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+    padding: 1.8rem;
+    border: 2px solid #c3c6ce;
+    transition: 0.5s ease-out;
+    overflow: visible;
+}
+
 .card-details {
     color: black;
     background-color: #ffffffcb;
@@ -318,12 +335,15 @@ nav a.active {
 
 .text-body {
     color: rgb(134, 134, 134);
+    font-size: 1rem;    
+    text-align: center;
 }
 
 /*Text*/
 .text-title {
-    font-size: 1.5em;
+    font-size: 2rem;
     font-weight: bold;
+    text-align: center;
 }
 
 /*Hover*/
@@ -346,6 +366,17 @@ nav a.active {
     transform: translate(-50%, 50%);
     opacity: 1;
 }
+
+.card3:hover {
+    border-color: #008bf8;
+    box-shadow: 0 4px 18px 0 rgba(0, 0, 0, 0.25);
+}
+
+.card3:hover .card-button {
+    transform: translate(-50%, 50%);
+    opacity: 1;
+}
+
 
 /* Footer */
 .footer {
