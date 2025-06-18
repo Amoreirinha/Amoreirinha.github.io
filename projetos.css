@@ -108,6 +108,14 @@ nav a.active {
     /* Garante que ocupe toda a largura */
 }
 
+.pblack h2{
+    color: #D9D9D9;
+    font-size: 2.25rem;
+    text-align: center;
+    margin-bottom: 2rem;
+    /* Espaço abaixo do título */
+}
+
 .colum {
     flex-direction: column;
 }
@@ -131,10 +139,6 @@ nav a.active {
     width: 40%;
     flex-shrink: 0;
     border-radius: 10px;
-}
-
-.ibiryprototipo {
-    max-width: 200px;
 }
 
 /* .pblack p {
@@ -248,7 +252,10 @@ nav a.active {
     color: #0D0D0D;
 }
 
-.pblack p,
+.pblack p {
+    color: #0D0D0D;
+}
+
 .pblack li {
     color: #D9D9D9;
 }
@@ -302,6 +309,22 @@ nav a.active {
     overflow: visible;
 }
 
+.card4 {
+    width: 300px;
+    height: 450px;
+    border-radius: 20px;
+    background-image: url('midia/image/github.jpeg');
+    background-color: #fb85ff75;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+    padding: 1.8rem;
+    border: 2px solid #c3c6ce;
+    transition: 0.5s ease-out;
+    overflow: visible;
+}
+
 .card-details {
     color: black;
     background-color: #ffffffcb;
@@ -336,6 +359,7 @@ nav a.active {
 /*Text*/
 .text-title {
     font-size: 2rem;
+    color:#0D0D0D;
     font-weight: bold;
     font-weight: 500;
     text-align: center;
@@ -368,6 +392,16 @@ nav a.active {
 }
 
 .card3:hover .card-button {
+    transform: translate(-50%, 50%);
+    opacity: 1;
+}
+
+.card4:hover {
+    border-color: #008bf8;
+    box-shadow: 0 4px 18px 0 rgba(0, 0, 0, 0.25);
+}
+
+.card4:hover .card-button {
     transform: translate(-50%, 50%);
     opacity: 1;
 }
