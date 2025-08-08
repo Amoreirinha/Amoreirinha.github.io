@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Feliz Dia dos Pais!</title>
+  <link rel="stylesheet" href="other_projects/dia_dos_pais.css" />
+</head>
+<body>
+  <header class="hero">
+    <h1>Feliz Dia dos Pais!</h1>
+    <p>Hoje é o dia do meu pai charope!!</p>
+  </header>
+
+  <section class="memories">
+    <h2>Momentos Inesquecíveis</h2>
+    <div class="gallery">
+      <div class="memory">
+        <img src="other_projects/midia/image/pai/foto (3).jpg" alt="Sorriso">
+        <p>Seu abraço é nosso lugar seguro 💫</p>
+      </div>
+      <div class="memory">
+        <img src="other_projects/midia/image/pai/foto (1).jpg" alt="Família">
+        <p>A família reunida, do jeitinho que você ama 🏡</p>
+      </div>
+      <div class="memory">
+        <img src="other_projects/midia/image/pai/foto (2).jpg" alt="Você é incrível">
+        <p>Você é muito bobo, mas ainda te amo muito</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="message">
+    <h2>Para meu Herói!</h2>
+    <p>
+      Papai, te amo muito muito muito mesmo!
+      <br>
+      Sou muito feliz de ser seu filho, mesmo com as bobeiras suas e manias de fazer eu e meu irmão passar vergonha.
+      <br>
+      Te admiro muito e tenho muito orgulho de você... Menos das suas piadas de tiozão, elas doem bastante.
+      <br>
+      Você é o melhor papai bobão que tenho e espero que tenha um dia dos pais maravilhoso. Espero muito poder passar cada vez mais dias dos pais ao seu lado.
+      <br>
+    </p>
+  </section>
+
+  <section class="surpresa">
+    <h2>Surpresa para você 🎁</h2>
+    <div class="present-container" onclick="abrirPresente()">
+        <img id="present" class="present" src="other_projects/midia/image/pai/presente.png" alt="Presente fechado">
+        <p>Clique no presente para abrir!</p>
+        <img id="imagemSurpresa" class="hidden" src="other_projects/midia/image/pai/3b486d66de838067ef29e9d7cef5d662.jpg" alt="Surpresa">
+    </div>
+  </section>
+
+  <script>
+    function abrirPresente() {
+        const presente = document.getElementById('present');
+        const imagem = document.getElementById('imagemSurpresa');
+
+        presente.classList.add('opening');
+
+        setTimeout(() => {
+        presente.classList.add('hidden');
+        imagem.classList.remove('hidden');
+        imagem.classList.add('fade-in');
+        }, 800);
+    }
+  </script>
+
+  <footer>
+    <p>Com todo amor, seu filho mais velho favorito ❤️</p>
+  </footer>
+</body>
+</html>

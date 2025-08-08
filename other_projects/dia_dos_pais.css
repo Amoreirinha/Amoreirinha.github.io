@@ -1,0 +1,196 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  line-height: 1.6;
+  background-color: #b5f4ff;
+  color: #1c2324;
+}
+
+/* Seções principais */
+
+.hero {
+  background: linear-gradient(to right, #34a8d6, #279ceb);
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.hero h1 {
+  font-size: 2.5rem;
+  color: #0b4266;
+}
+
+.hero p {
+  font-size: 1.2rem;
+  margin-top: 10px;
+}
+
+.memories {
+  padding: 40px 20px;
+  text-align: center;
+}
+
+.memories h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: #0b4266;
+}
+
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.memory {
+  background-color: #2a88b4;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  overflow: hidden;
+  max-width: 300px;
+  transition: transform 0.2s ease;
+}
+
+.memory:hover {
+  transform: scale(1.03);
+}
+
+.memory img {
+  width: 100%;
+  display: block;
+}
+
+.memory p {
+  padding: 10px;
+  font-style: italic;
+  color: #0c173d;
+}
+
+.message {
+  background-color: #5588d4;
+  padding: 40px 20px;
+  text-align: center;
+}
+
+.message h2 {
+  font-size: 1.8rem;
+  margin-bottom: 15px;
+  color: #0b4266;
+}
+
+.message p {
+  font-size: 1.2rem;
+  max-width: 600px;
+  margin: 0 auto;
+  white-space: pre-line;
+}
+
+footer {
+  background-color: #94c2e7;
+  text-align: center;
+  padding: 20px;
+  color: #0b4266;
+  font-weight: bold;
+}
+
+/* Seção Surpresa */
+
+.surpresa {
+  background-color: #9bd9ec;
+  padding: 40px 20px;
+  text-align: center;
+}
+
+.surpresa h2 {
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+  color: #0b4266;
+}
+
+.present-container {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.present {
+  width: 100%;
+  max-width: 300px;
+  transition: transform 0.8s ease, opacity 0.8s ease;
+}
+
+.present.opening {
+  animation: present-open 0.8s ease forwards;
+}
+
+@keyframes present-open {
+  0% {
+    transform: scale(1) rotate(0deg);
+    opacity: 1;
+  }
+  60% {
+    transform: scale(1.1) rotate(5deg);
+    opacity: 0.7;
+  }
+  100% {
+    transform: scale(0.8) rotateX(90deg);
+    opacity: 0;
+  }
+}
+
+.hidden {
+  display: none;
+}
+
+#imagemSurpresa {
+  max-width: 100%;
+  height: auto;
+  margin-top: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  opacity: 0;
+  transition: opacity 1s ease;
+}
+
+.fade-in {
+  opacity: 1 !important;
+}
+
+/* ========== MOBILE STYLES ========== */
+@media (max-width: 600px) {
+  .hero h1 {
+    font-size: 1.8rem;
+  }
+
+  .hero p,
+  .message p {
+    font-size: 1rem;
+  }
+
+  .memories h2,
+  .message h2,
+  .surpresa h2 {
+    font-size: 1.5rem;
+  }
+
+  .memory {
+    max-width: 90%;
+  }
+
+  .present {
+    max-width: 200px;
+  }
+
+  #imagemSurpresa {
+    max-height: 300px;
+  }
+
+  .message p {
+    padding: 0 10px;
+  }
+}
