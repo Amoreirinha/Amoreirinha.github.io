@@ -1,0 +1,662 @@
+/* FONTES (mantenha como está) */
+@font-face {
+  font-family: 'Anonymous Pro';
+  src: url('midia/fonts/anonymous-pro/AnonymousPro-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Anonymous Pro';
+  src: url('midia/fonts/anonymous-pro/AnonymousPro-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Anonymous Pro';
+  src: url('midia/fonts/anonymous-pro/AnonymousPro-Italic.ttf') format('truetype');
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Anonymous Pro';
+  src: url('midia/fonts/anonymous-pro/AnonymousPro-BoldItalic.ttf') format('truetype');
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Bebas Neue';
+  src: url('midia/fonts/bebas-neue/BebasNeue-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow-x: hidden;
+  color: white;
+  font-family: 'Anonymous Pro', Arial, Helvetica, sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+/* Seção INÍCIO */
+#inicio {
+  position: relative;
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  color: white;
+}
+
+/* Imagem de fundo */
+#inicio .Background_img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+}
+
+/* Overlay para melhor contraste do texto */
+#inicio::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.4));
+  z-index: 0;
+}
+
+/* Conteúdo da seção início */
+#inicio .content {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  padding: 2rem;
+  max-width: 1980px;
+  max-height: 1000px;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Título principal */
+#inicio h1 {
+  font-family: 'Bebas Neue', Arial, Helvetica, sans-serif;
+  font-size: clamp(2.5rem, 8vw, 3.5rem);
+  font-weight: bold;
+  margin-bottom: 50rem;
+  letter-spacing: 5rem;
+}
+
+/* CONTAINER DO TEXTO NO CANTO INFERIOR ESQUERDO */
+#inicio .legend-container {
+  position: absolute; /* Isso faz ficar fixo na section */
+  bottom: 20px; /* Distância do fundo */
+  left: 20px; /* Distância da esquerda */
+  z-index: 2; /* Garante que fique acima do overlay */
+  text-align: left; /* Alinha texto à esquerda */
+  font-weight: 700;
+}
+
+/* Ano e Nome na mesma linha */
+#inicio .year-name-container {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1rem;
+  opacity: 0.9;
+  margin-bottom: 0.5rem; /* Espaço entre as linhas */
+}
+
+#inicio .year-separator {
+  margin: 0 0.25rem;
+}
+
+/* Grau Acadêmico */
+#inicio .degree {
+  font-size: 1rem;
+  opacity: 0.9;
+}
+
+.separete-sections{
+    padding: 2rem;
+}
+
+/* Outras seções */
+#SobreMim, #contato {
+  padding: 4rem 2rem;
+  /*max-width: 1980px;*/
+  max-width: 100%;
+  margin: 0;
+  color: white;
+  background-color:#090000;
+}
+
+/* Seção Sobre Mim - Layout de TRÊS colunas */
+#SobreMim {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr; /* TRÊS colunas iguais */
+  gap: 3rem; /* Espaço entre as colunas */
+  align-items: start; /* Alinha conteúdo no topo */
+}
+
+/* Coluna 1 - Informações pessoais e foto */
+#SobreMim .col-1 {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+/* Coluna 2 - Educação e Skills */
+#SobreMim .col-2 {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+
+/* Coluna 3 - Achievements */
+#SobreMim .col-3 {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+/* Nome e nacionalidade - mantém o mesmo */
+#SobreMim .name-title {
+  font-family: 'Bebas Neue', Arial, Helvetica, sans-serif;
+  font-size: 2.5rem;
+  font-weight: 400;
+  line-height: 1.1;
+  margin-bottom: 0.5rem;
+}
+
+#SobreMim .nationality {
+  font-size: 1.1rem;
+  opacity: 0.8;
+  margin-bottom: 1.5rem;
+}
+
+/* Foto */
+#SobreMim .profile-photo {
+  width: 100%;
+  max-width: 30rem;
+  height: auto;
+  border-radius: 8px;
+  margin-bottom: 1.5rem;
+}
+
+/* Informações de contato */
+#SobreMim .contact-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 2rem;
+}
+
+#SobreMim .contact-info div {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1rem;
+}
+
+/* Linha divisória */
+#SobreMim .divider {
+  height: 1px;
+  background-color: rgba(255, 255, 255, 0.2);
+  margin: 1.5rem 0;
+  width: 100%;
+}
+
+/* Títulos das seções (Education, Skills, etc.) */
+#SobreMim .section-title {
+  font-family: 'Bebas Neue', Arial, Helvetica, sans-serif;
+  font-size: 1.8rem;
+  font-weight: 400;
+  margin-bottom: 1rem;
+  letter-spacing: 0.05rem;
+}
+
+/* Educação */
+#SobreMim .education-item {
+  margin-bottom: 1.5rem;
+}
+
+#SobreMim .education-year {
+  font-weight: 700;
+  font-size: 1.1rem;
+  margin-bottom: 0.25rem;
+}
+
+#SobreMim .education-description {
+  font-size: 1rem;
+  opacity: 0.9;
+  line-height: 1.4;
+}
+
+/* Skills - Grid de badges */
+#SobreMim .skills-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* 2 colunas para skills */
+  gap: 0.75rem;
+  margin-top: 0.5rem;
+}
+
+#SobreMim .skill-item {
+  background-color: rgba(255, 255, 255, 0.1);
+  padding: 0.5rem 0.75rem;
+  border-radius: 4px;
+  text-align: center;
+  font-size: 0.9rem;
+  transition: background-color 0.3s;
+}
+
+#SobreMim .skill-item:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Conquistas - Lista vertical */
+#SobreMim .achievements-list {
+  list-style-type: none;
+  margin-top: 0.5rem;
+}
+
+#SobreMim .achievements-list li {
+  margin-bottom: 1.2rem;
+  padding-left: 1rem;
+  position: relative;
+  line-height: 1.4;
+  font-size: 0.95rem;
+}
+
+#SobreMim .achievements-list li:before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: #fff;
+  font-size: 1.2rem;
+}
+
+#SobreMim .achievement-year {
+  font-weight: 700;
+  display: inline-block;
+  margin-right: 0.5rem;
+  color: #fff;
+}
+
+#SobreMim .achievement-text {
+  opacity: 0.9;
+}
+
+/* Botão See More */
+#SobreMim .see-more-btn {
+  display: inline-block;
+  background-color: transparent;
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  padding: 0.75rem 1.5rem;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  margin-top: 1rem;
+  transition: all 0.3s;
+  text-decoration: none;
+  text-align: center;
+  width: fit-content;
+}
+
+#SobreMim .see-more-btn:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.5);
+}
+
+/* Seção Contato - Layout com foto à esquerda e texto à direita */
+
+/* Container principal da seção contato */
+.contact-container {
+  display: grid;
+  grid-template-columns: 1fr 2fr; /* Foto menor, texto maior */
+  gap: 4rem;
+  align-items: start;
+}
+
+/* Coluna da foto */
+.contact-photo-column {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+/* Foto da seção contato */
+.contact-photo {
+  width: 100%;
+  max-width: 90rem;
+  height: auto;
+  border-radius: 4px;
+  margin: 0 auto;
+}
+
+/* Título da seção contato */
+.contact-title {
+  font-family: 'Bebas Neue', Arial, Helvetica, sans-serif;
+  font-size: 2.5rem;
+  font-weight: 400;
+  margin-bottom: 2rem;
+  letter-spacing: 0.1rem;
+  text-transform: uppercase;
+  color: white;
+}
+
+/* Coluna do texto */
+.contact-text-column {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+/* Texto descritivo */
+.contact-description {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  opacity: 0.9;
+  margin-bottom: 1.5rem;
+}
+
+/* Container dos ícones sociais na seção contato */
+.contact-social-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.contact-social-title {
+  font-family: 'Bebas Neue', Arial, Helvetica, sans-serif;
+  font-size: 1.5rem;
+  font-weight: 400;
+  letter-spacing: 0.05rem;
+  color: white;
+  margin-bottom: 0.5rem;
+}
+
+.contact-social-icons {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+/* Ajustes específicos para os ícones sociais na seção contato */
+.contact-social-container .socialContainer {
+  width: 44px;
+  height: 44px;
+  background-color: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.contact-social-container .socialContainer:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Informações de contato adicionais */
+.contact-details {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-top: 2rem;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.contact-detail-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 1rem;
+}
+
+.contact-detail-icon {
+  width: 20px;
+  height: 20px;
+  opacity: 0.7;
+}
+
+/* SOCIAL ICONS */
+.social-card {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-bottom: 2rem;
+}
+
+.socialContainer {
+    width: 52px;
+    height: 52px;
+    background-color: #2C2C2C;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    border-radius: 50%;
+    transition-duration: 0.3s;
+}
+
+.containerOne:hover {
+    background-color: #d62976;
+}
+
+.containerTwo:hover {
+    background-color: #151B23;
+}
+
+.containerThree:hover {
+    background-color: #0072b1;
+}
+
+.containerFour:hover {
+    background-color: #e02b1e;
+}
+
+.containerFive:hover {
+    background-color: #1caa23;
+}
+
+.socialContainer:active {
+    transform: scale(0.9);
+    transition-duration: 0.3s;
+}
+
+.socialSvg {
+    width: 20px;
+    height: 20px;
+}
+
+.socialSvg path {
+    fill: #ffffff;
+}
+
+.socialContainer:hover .socialSvg {
+    animation: slide-in-top 0.3s both;
+}
+
+@keyframes slide-in-top {
+    0% {
+        transform: translateY(-50px);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Fade-in do footer */
+@keyframes fadeInFooter {
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Imagem streetweareffect1 no canto inferior direito */
+.streetweareffect1 {
+  position: absolute;
+  bottom: 0px;
+  right: 0px;
+  width: 650px; /* Ajuste o tamanho conforme necessário */
+  height: auto;
+  opacity: 1;
+  z-index: 1;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.5));
+  transition: opacity 0.3s ease;
+}
+
+/* Ajuste na seção contato para posicionamento relativo */
+#contato {
+  position: relative; /* Necessário para o posicionamento absoluto da imagem */
+  padding: 4rem 2rem;
+  max-width: 100%;
+  margin: 0;
+  color: white;
+  background-color: #090000;
+}
+
+/* Ajuste no container para não interferir com a imagem */
+.contact-container {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 4rem;
+  align-items: start;
+  position: relative; /* Garante que a imagem fique acima */
+  z-index: 2;
+}
+
+/* Responsividade */
+@media (max-width: 1024px) {
+  #SobreMim {
+    grid-template-columns: 1fr 1fr; /* 2 colunas em tablets */
+  }
+  
+  #SobreMim .col-3 {
+    grid-column: span 2; /* Achievements ocupa as 2 colunas */
+  }
+    .contact-container {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+  
+  .contact-photo {
+    max-width: 300px;
+  }
+  
+  .contact-social-icons {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 768px) {
+  #inicio h1 {
+    letter-spacing: 0.25rem;
+    margin-bottom: 1rem;
+  }
+  
+  #inicio .legend-container {
+    bottom: 15px;
+    left: 15px;
+    padding: 0 10px;
+  }
+  
+  #inicio .year-name-container,
+  #inicio .degree {
+    font-size: 0.9rem;
+  }
+    #SobreMim {
+    grid-template-columns: 1fr; /* 1 coluna em mobile */
+    gap: 2rem;
+    padding: 2rem 1rem;
+  }
+  
+  #SobreMim .col-3 {
+    grid-column: span 1;
+  }
+  
+  #SobreMim .name-title {
+    font-size: 2rem;
+  }
+  
+  #SobreMim .skills-grid {
+    grid-template-columns: repeat(3, 1fr); /* 3 colunas em mobile para skills */
+  }
+
+   #contato {
+    padding: 2rem 1rem;
+  }
+  
+  .contact-title {
+    font-size: 2rem;
+    text-align: center;
+  }
+  
+  .contact-description {
+    font-size: 1rem;
+    text-align: justify;
+  }
+  
+  .contact-social-container {
+    align-items: center;
+  }
+  
+  .contact-social-title {
+    text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  #SobreMim .skills-grid {
+    grid-template-columns: repeat(2, 1fr); /* 2 colunas em mobile pequeno */
+  }
+   .contact-social-icons {
+    gap: 0.75rem;
+  }
+  
+  .contact-social-container .socialContainer {
+    width: 40px;
+    height: 40px;
+  }
+}
