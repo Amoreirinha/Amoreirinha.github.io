@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Para Evellyn</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            /* Fundo muito escuro, destacando a página clara no centro */
+            background-color: #120b08;
+            font-family: 'Dancing Script', cursive;
+        }
+
+        .letter {
+            /* Imagem de fundo solicitada */
+            background-image: url('https://static.vecteezy.com/system/resources/previews/042/702/724/non_2x/old-paper-texture-brown-vintage-paper-sheet-background-with-space-for-text-vector.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            
+            width: 100%;
+            max-width: 750px;
+            
+            /* Margens internas maiores para evitar que o texto caia nas bordas rasgadas da imagem */
+            padding: 90px 80px 100px 80px;
+            
+            /* Sombra realista sob a folha */
+            box-shadow: 10px 15px 35px rgba(0,0,0,0.8);
+            position: relative;
+            box-sizing: border-box;
+            border-radius: 5px;
+        }
+
+        h1 {
+            font-size: 2.8em;
+            color: #2a1a12; /* Tinta envelhecida */
+            margin-bottom: 30px;
+            text-align: center;
+            border-bottom: 1px solid rgba(42, 26, 18, 0.2);
+            padding-bottom: 15px;
+            text-shadow: 0px 0px 1px rgba(0,0,0,0.1);
+        }
+
+        p {
+            font-size: 1.6em;
+            line-height: 1.5;
+            color: #2a1a12; /* Tinta envelhecida */
+            margin-bottom: 25px;
+            text-align: justify;
+            text-indent: 40px; /* Recuo clássico de parágrafo de livro */
+        }
+
+        .flower-section-title {
+            font-size: 1.8em;
+            font-weight: bold;
+            color: #2a1a12;
+            margin-top: 50px;
+            margin-bottom: 30px;
+            text-align: center;
+            text-indent: 0; /* Remove o recuo do título */
+        }
+
+        /* Container da Galeria de Flores */
+        .flower-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px 20px;
+            margin-bottom: 40px;
+        }
+
+        .flower-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 10px;
+            /* Sem fundo para parecer ilustração na própria folha */
+        }
+
+        /* Estilização das imagens PNG */
+        .flower-image {
+            min-width: 230px;
+            min-height: 230px;
+            width: 10rem;
+            height: 10rem;
+            object-fit: contain;
+            margin-bottom: 15px;
+            /* Filtro de sépia mais forte para mesclar com o papel antigo */            
+            /*mix-blend-mode: multiply; /* Faz com que o PNG "queime" a textura do fundo, parecendo tinta */
+            filter: contrast(110%) opacity(90%);
+        }
+
+        .flower-text {
+            text-align: center;
+            font-size: 1.7em;
+            line-height: 1.3;
+            color: #2a1a12;
+        }
+
+        .flower-name {
+            font-weight: bold;
+            font-size: 1.2em;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .signature {
+            margin-top: 60px;
+            text-align: right;
+            font-size: 2em;
+            color: #170d08;
+            line-height: 1.2;
+            padding-right: 20px;
+        }
+
+        /* Ajustes para telas pequenas (Celulares) */
+        @media (max-width: 600px) {
+            .letter {
+                /* Reduz o padding interno, mas mantém segurança das bordas */
+                padding: 60px 40px; 
+            }
+            h1 { font-size: 2.2em; }
+            p { font-size: 1.4em; text-indent: 25px; }
+            .flower-gallery {
+                grid-template-columns: 1fr; 
+                gap: 30px;
+            }
+            .flower-image {
+                width: 110px;
+                height: 110px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <article class="letter">
+        <h1>Para Evellyn.</h1>
+        
+        <p>
+            Foi um prazer enorme te conhecer. Realmente não esperava por nada disso, mas acabei sendo arrebatado por seu charme e jeitinho de ser. Espero do fundo do meu coração que possamos nos conhecer cada vez mais. Abaixo, segue o nome e significado das flores deste pequeno gesto. Elas foram especificamente escolhidas como uma forma de declarar como você mexe comigo.
+        </p>
+
+        <p class="flower-section-title">Flores e seus significados</p>
+        
+        <div class="flower-gallery">
+            <div class="flower-item">
+                <img src="presente/botão de ouro.png" alt="Botão-de-ouro" class="flower-image">
+                <div class="flower-text">
+                    <span class="flower-name">Botão-de-ouro</span>
+                    Você tem um charme radiante.
+                </div>
+            </div>
+
+            <div class="flower-item">
+                <img src="presente/jasmim.png" alt="Jasmim" class="flower-image">
+                <div class="flower-text">
+                    <span class="flower-name">Jasmim</span>
+                    Amabilidade; Alegria.
+                </div>
+            </div>
+
+            <div class="flower-item">
+                <img src="presente/madressilva.png" alt="Madressilva" class="flower-image">
+                <div class="flower-text">
+                    <span class="flower-name">Madressilva</span>
+                    Devoção; Afeto.
+                </div>
+            </div>
+
+            <div class="flower-item">
+                <img src="presente/orquídea.png" alt="Orquídea" class="flower-image">
+                <div class="flower-text">
+                    <span class="flower-name">Orquídea</span>
+                    Elegância; Beleza.
+                </div>
+            </div>
+
+            <div class="flower-item">
+                <img src="presente/amor perfeito.png" alt="Amor-perfeito" class="flower-image">
+                <div class="flower-text">
+                    <span class="flower-name">Amor-perfeito</span>
+                    Você está nos meus pensamentos.
+                </div>
+            </div>
+
+            <div class="flower-item">
+                <img src="presente/cravina.png" alt="Cravina" class="flower-image">
+                <div class="flower-text">
+                    <span class="flower-name">Cravina</span>
+                    Galanteio.
+                </div>
+            </div>
+        </div>
+
+        <div class="signature">
+            Com muito carinho,<br>
+            Joaquim!
+        </div>
+    </article>
+
+</body>
+</html>
