@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Para o melhor pai do mundo</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,600;1,9..144,500&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=Caveat:wght@500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="grain"></div>
+
+<header class="hero">
+  <div class="filmstrip">
+    <div class="filmstrip-track" id="track">
+      <div class="empty-state" id="emptyState">
+        <p>Coloque fotos e vídeos na pasta <code>images_and_videos</code><br>e eles aparecem aqui automaticamente.</p>
+      </div>
+    </div>
+    <button class="fs-nav fs-prev" id="prevBtn" aria-label="Slide anterior">&#8249;</button>
+    <button class="fs-nav fs-next" id="nextBtn" aria-label="Próximo slide">&#8250;</button>
+    <div class="fs-dots" id="dots"></div>
+  </div>
+  <div class="hero-caption">
+    <p class="eyebrow">uma carta para você</p>
+    <h1>Para o melhor pai&nbsp;do&nbsp;mundo</h1>
+  </div>
+</header>
+
+<main class="letter-wrap">
+  <article class="letter">
+    <p>Desde pequeno tive a oportunidade de aprender com o melhor professor do mundo. Me ensinando de como fazer bombas com produtos de limpeza, o que quase infartou minha mãe, até o que é amor e cuidado.</p>
+
+    <p>Com o passar do tempo, para além de simplesmente o melhor professor do mundo, comecei a te ver como meu herói, com quem sempre pude contar, quase invencível ao meu ver. Amava como brincávamos de lutinha, como você era bobo e sempre me fazia rir e de como fingia que não me via quando eu me escondia esperando que brincasse de esconde-esconde comigo assim que chegava do trabalho.</p>
+
+    <p>Assim que fui amadurecendo e crescendo, fui vendo que, diferente do que eu imaginava quando mais criança, você não era invencível como eu achava. Mas digo que fiquei muito feliz com isso, porque você foi quem me mostrou que estava tudo bem chorar, sentir medo, ficar triste, e que mesmo com tudo dando errado, ainda dava para manter um sorriso no rosto e arranjar um jeito pra tudo, principalmente por quem amamos.</p>
+
+    <p>Com meu primeiro emprego, mesmo que nem comparado com sua carga de trabalho, tive ainda mais admiração por você, por ver o quanto realmente se esforçava e o quão resiliente você é. Sei que, se um dia eu tiver sua força e resistência, nada me parará, assim como nada te parou.</p>
+
+    <p>Você sempre foi alguém que eu admirei e tive muito orgulho e, independente das nossas fases ruins e boas, isso nunca mudou para mim. Amo muito estar com você, amo muito quando passeamos de bicicleta juntos, ou quando inventamos alguma arte para aterrorizar minha mãe e irmão, quando fazemos projetos junto e como você sempre vibra com minhas coisinhas que adoro mostrar pra você.</p>
+
+    <p>Eu te amo muito pai, muito mesmo. Sei que não escrevi nem 1% dos momentos memoráveis que temos, mas saiba que, com lágrimas de emoção, amor e saudade, escrevi essa pequena homenagem relembrando todas as nossas memórias. Você é o melhor pai do mundo, nunca se esqueça disso bobão.</p>
+
+  </article>
+</main>
+
+<footer class="site-footer">
+</footer>
+
+<div class="audio-player" id="audioPlayer" hidden>
+  <button id="playToggle" aria-label="Tocar música de fundo">
+    <svg id="iconPlay" viewBox="0 0 24 24" width="16" height="16"><path fill="currentColor" d="M8 5v14l11-7z"/></svg>
+    <svg id="iconPause" viewBox="0 0 24 24" width="16" height="16" style="display:none"><path fill="currentColor" d="M6 5h4v14H6zM14 5h4v14h-4z"/></svg>
+  </button>
+  <span class="audio-label">nossa trilha</span>
+</div>
+<audio id="bgAudio" loop preload="auto"></audio>
+
+<script src="script.js"></script>
+</body>
+</html>
