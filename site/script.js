@@ -113,7 +113,11 @@ async function initCarousel() {
   let current = 0;
   function goTo(i) {
     current = (i + slides.length) % slides.length;
-    slides[current].slide.scrollIntoView({ behavior: "smooth", inline: "center", block: "nearest" });
+    const el = slides[current].slide;
+    // Scroll only the track horizontally (never the page) so auto-advance
+    // never pulls the viewport up.
+    const targetLeft = el.offsetLeft - (track.clientWidth - el.clientWidth) / 2;
+    track.scrollTo({ left: targetLeft, behavior: "smooth" });
   }
   prevBtn.addEventListener("click", () => { goTo(current - 1); resetAuto(); });
   nextBtn.addEventListener("click", () => { goTo(current + 1); resetAuto(); });
