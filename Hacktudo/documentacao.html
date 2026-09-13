@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Documentação do Projeto — Integra Campus</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<nav class="topnav">
+  <div class="wrap">
+    <a href="index.html" class="brand"><span class="brand-mark"></span> Integra Campus</a>
+    <div class="nav-links">
+<a href="index.html#inicio">Início</a>
+      <a href="documentacao.html">Documentação</a>
+      <a href="simulacao.html">Simulação PC</a>
+      <a href="index.html#equipe">Equipe</a>
+      <a href="https://www.figma.com/proto/yFv2aK2eHJ5nF9Hv6hK9Bt/Untitled?node-id=1-212&p=f&t=SdXk55OSvxdfg4xi-1&scaling=min-zoom&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=1%3A212&show-proto-sidebar=1" class="nav-cta">Ver simulação do App</a>
+    </div>
+  </div>
+</nav>
+
+<section class="page-hero">
+  <div class="wrap">
+    <a href="index.html" class="back-link">← Voltar à página inicial</a>
+    <span class="eyebrow">Documentação do Projeto</span>
+    <h1>HACKATON HACKTUDO — Projeto Integra Campus</h1>
+    <p>Leia abaixo uma visualização estilizada do documento completo do projeto, com o resumo de cada seção. O PDF original e o pacote de referências científicas podem ser baixados ao final da página.</p>
+  </div>
+</section>
+
+<section style="padding:0 0 88px;">
+  <div class="wrap">
+    <div class="doc-layout">
+      <aside class="doc-toc">
+        <h5>Neste documento</h5>
+        <a href="#capa">Capa</a>
+        <a href="#resumo">Resumo</a>
+        <a href="#introducao">1. Introdução e Problematização</a>
+        <a href="#justificativa">2. Justificativa</a>
+        <a href="#fundamentacao">3. Fundamentação Teórica</a>
+        <a href="#solucao">4. Desenvolvimento da Solução</a>
+        <a href="#metodologia">5–6. Metodologia e Validação</a>
+        <a href="#arquitetura">7–10. Arquitetura e Viabilidade</a>
+        <a href="#impactos">11–13. Impactos e Diferenciais</a>
+        <a href="#conclusao">14–16. Limitações, Futuro e Conclusão</a>
+        <a href="#referencias">Referências</a>
+      </aside>
+
+      <div class="pdf-viewer">
+        <div class="pdf-viewer-topbar">
+          <span>Integra_Campus.pdf — leitor integrado</span>
+          <span class="pages">17 seções</span>
+        </div>
+
+        <div class="pdf-page pdf-cover" id="capa">
+          <div class="mark"></div>
+          <h3>HACKATON HACKTUDO</h3>
+          <p>Equipe: Hack'n Roll</p>
+          <p><strong>"PROJETO INTEGRA CAMPUS"</strong></p>
+          <div class="names">
+            Joaquim Pedro do Nascimento Moreira de Jesus<br>
+            Luiz Gabriel da Silva Cabrera<br>
+            Melissa Hollanda de Oliveira Alves<br>
+            Victória de Almeida Tambasco
+          </div>
+          <p style="margin-top:22px;">Alfenas — 2026</p>
+        </div>
+
+        <div class="pdf-page" id="resumo">
+          <span class="pdf-tag">Resumo</span>
+          <h3>O SuperApp Integra Campus</h3>
+          <p>O crescimento do uso de smartphones entre crianças e adolescentes mudou profundamente o ambiente escolar, trazendo desafios de aprendizagem, atenção, saúde mental, convivência e segurança digital. O uso excessivo e sem mediação está ligado à queda de desempenho, ansiedade, problemas de sono e cyberbullying — mas a proibição total, isolada, também tem resultado limitado.</p>
+          <p>O Integra Campus propõe um modelo de <strong>regulação contextual</strong> em vez de proibição irrestrita, integrando cinco eixos: Modo Sala de Foco, Campus Virtual, Controle Parental e Educacional, Gamificação e Banco de Horas, e Inteligência Artificial de Apoio ao Professor.</p>
+          <p>A proposta se apoia em 36 referências científicas (2012–2026), legislação brasileira, documentos da UNESCO, notícias sobre regulação de plataformas digitais e uma entrevista com um professor da rede pública paulista e do Centro Paula Souza, usada como validação qualitativa.</p>
+        </div>
+
+        <div class="pdf-page" id="introducao">
+          <span class="pdf-tag">Seção 1</span>
+          <h3>Introdução e Problematização</h3>
+          <p>O smartphone deixou de ser apenas comunicação e passou a concentrar entretenimento, redes sociais, estudo e interação social, disputando permanentemente a atenção do estudante em sala de aula.</p>
+          <p>Em janeiro de 2025, a Lei nº 15.100/2025 passou a restringir o uso de celulares na educação básica durante todo o período escolar, com exceções pedagógicas — mas sem oferecer infraestrutura para viabilizar esse uso educativo.</p>
+          <table>
+            <tr><th>Evidência científica</th><th>Base</th></tr>
+            <tr><td>Dependência de smartphones reduz desempenho acadêmico</td><td>Metanálise com ~148 mil estudantes (Sunday et al.)</td></tr>
+            <tr><td>Uso recreativo piora aprendizagem; uso pedagógico melhora</td><td>Pesquisa quantitativa (Tang et al.)</td></tr>
+            <tr><td>Tempo de tela excessivo associado a pior desempenho</td><td>Estudos longitudinais internacionais</td></tr>
+          </table>
+          <p>A conclusão central: o problema não é o celular, mas o seu uso sem mediação.</p>
+        </div>
+
+        <div class="pdf-page" id="justificativa">
+          <span class="pdf-tag">Seção 2</span>
+          <h3>Justificativa</h3>
+          <p>Existe uma lacuna entre a legislação (que restringe) e a infraestrutura tecnológica das escolas (que não oferece controle contextual). O Integra Campus integra gestão escolar, aprendizagem móvel, gamificação baseada em evidências, controle parental transparente, IA adaptativa, proteção da saúde mental e conformidade com a LGPD em um único SuperApp.</p>
+          <h4>Diferencial da proposta</h4>
+          <p>Em vez de perguntar "como proibir celulares?", o projeto parte de: como transformar o smartphone em instrumento seguro, pedagógico e saudável para estudantes, professores e famílias?</p>
+        </div>
+
+        <div class="pdf-page" id="fundamentacao">
+          <span class="pdf-tag">Seção 3</span>
+          <h3>Fundamentação Teórica</h3>
+          <p>Nove eixos temáticos sustentam a proposta, reunindo metanálises, revisões sistemáticas, estudos experimentais e legislação.</p>
+          <table>
+            <tr><th>Eixo</th><th>Implicação para o app</th></tr>
+            <tr><td>Smartphones e desempenho acadêmico</td><td>Base do Modo Sala de Foco e do bloqueio contextual</td></tr>
+            <tr><td>Saúde mental e bem-estar digital</td><td>Módulo de Bem-estar Digital e alertas preventivos</td></tr>
+            <tr><td>Proibição total vs. regulação contextual</td><td>Princípio central de toda a arquitetura do app</td></tr>
+            <tr><td>Mobile Learning</td><td>Base do Campus Virtual</td></tr>
+          </table>
+          <p>A literatura converge para a ideia central de que a regulação contextual produz melhores resultados do que os extremos entre proibição absoluta e uso irrestrito — princípio que orienta toda a arquitetura do Integra Campus.</p>
+        </div>
+
+        <div class="pdf-page" id="solucao">
+          <span class="pdf-tag">Seção 4</span>
+          <h3>Desenvolvimento da Solução: SuperApp Integra Campus</h3>
+          <p>Construído a partir de três princípios: o smartphone deve ser regulado, não eliminado, quando houver finalidade pedagógica; a tecnologia precisa reduzir a carga de trabalho docente; família, escola e estudante compartilham responsabilidades sobre o uso digital.</p>
+          <table>
+            <tr><th>Módulo</th><th>Função</th></tr>
+            <tr><td>Modo Sala de Foco</td><td>Whitelist/blacklist de apps durante atividades autorizadas pelo professor</td></tr>
+            <tr><td>Campus Virtual</td><td>Biblioteca, cursos complementares, aulas síncronas, notas e presença</td></tr>
+            <tr><td>Controle Parental e Educacional</td><td>Painel transparente, alertas inteligentes, campanha de conscientização</td></tr>
+            <tr><td>Gamificação e Banco de Horas</td><td>XP, badges, missões e desafios</td></tr>
+            <tr><td>IA Educacional</td><td>Perfil dinâmico, recomendações, correção inicial e relatórios</td></tr>
+          </table>
+        </div>
+
+        <div class="pdf-page" id="metodologia">
+          <span class="pdf-tag">Seções 5–6</span>
+          <h3>Metodologia e Validação pela Pesquisa de Campo</h3>
+          <p>Pesquisa aplicada, de abordagem qualitativa e quantitativa, combinando revisão bibliográfica (36 referências), análise documental da legislação e uma entrevista semiestruturada com um professor com mais de 25 anos de experiência na rede pública de SP e no Centro Paula Souza, realizada em setembro de 2026.</p>
+          <p>Cinco categorias emergiram da entrevista e foram incorporadas ao projeto: distração e perda de foco, o celular como ferramenta pedagógica, sobrecarga de trabalho docente, participação da família e a ideia da blacklist colaborativa.</p>
+        </div>
+
+        <div class="pdf-page" id="arquitetura">
+          <span class="pdf-tag">Seções 7–10</span>
+          <h3>Arquitetura Técnica e Viabilidade</h3>
+          <p>Sistema multiplataforma com quatro perfis de acesso — Aluno, Professor, Responsável e Gestão Escolar — construído para funcionar em Android e iOS, com funcionamento parcial offline (Modo Sala de Foco, blacklist local e gamificação funcionam sem internet).</p>
+          <p>O tratamento de dados segue a LGPD (Lei nº 13.709/2018): coleta mínima, finalidade exclusivamente educacional, transparência e nenhum acesso a mensagens, fotos ou conteúdo de tela do estudante.</p>
+          <p>A implantação é pensada em fases: piloto em uma escola, expansão municipal, integração com a rede estadual e, por fim, escala nacional.</p>
+        </div>
+
+        <div class="pdf-page" id="impactos">
+          <span class="pdf-tag">Seções 11–13</span>
+          <h3>Impactos Esperados e Diferenciais</h3>
+          <p>Impactos previstos em quatro dimensões: aprendizagem dos estudantes, trabalho docente, participação das famílias e saúde mental/bem-estar digital.</p>
+          <p>O principal diferencial em relação a plataformas existentes é reunir, em um único app, bloqueio contextual, alertas automáticos ao professor, IA adaptativa, bem-estar digital e campanha para responsáveis — recursos hoje fragmentados ou ausentes nas soluções tradicionais.</p>
+        </div>
+
+        <div class="pdf-page" id="conclusao">
+          <span class="pdf-tag">Seções 14–16</span>
+          <h3>Limitações, Trabalhos Futuros e Conclusão</h3>
+          <p>O projeto reconhece limitações: validação com apenas um especialista, ausência de piloto em ambiente escolar real e impactos ainda baseados em literatura e modelagem, não em dados longitudinais próprios.</p>
+          <p>Como trabalhos futuros, o projeto prevê integração com wearables, IA generativa para tutoria personalizada, painéis para psicólogos escolares e expansão para redes públicas em escala nacional.</p>
+          <p>Conclui-se que o Integra Campus propõe transformar o smartphone de fator de distração em instrumento de aprendizagem consciente, fortalecendo o trabalho docente, a participação das famílias e o desenvolvimento integral dos estudantes.</p>
+        </div>
+
+        <div class="pdf-page" id="referencias">
+          <span class="pdf-tag">Referências</span>
+          <h3>Referências (ABNT NBR 6023:2018)</h3>
+          <p>A fundamentação teórica reúne 36 referências publicadas entre 2012 e 2026, entre metanálises, revisões sistemáticas, estudos experimentais, pesquisas quantitativas e qualitativas, legislação brasileira, documentos da UNESCO e notícias institucionais recentes sobre a regulação de plataformas digitais. A lista completa está disponível no PDF original, para download abaixo.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="download-section" id="downloads">
+  <div class="wrap">
+    <div class="download-panel">
+      <div class="download-panel-head">
+        <h2>Downloads do projeto</h2>
+        <p>Baixe o documento completo do Integra Campus e o pacote com as referências científicas utilizadas na pesquisa.</p>
+      </div>
+      <div class="download-grid">
+        <div class="download-card">
+          <div class="dl-icon">📄</div>
+          <h4>Baixar PDF do Projeto</h4>
+          <p>Documento completo do Hackaton HackTudo — Projeto Integra Campus, com todas as seções, imagens e referências.</p>
+          <a class="btn-download" href="assets/Integra_Campus.pdf" download>Baixar PDF →</a>
+        </div>
+        <div class="download-card">
+          <div class="dl-icon">🗂️</div>
+          <h4>Baixar Referências (Pacote ZIP)</h4>
+          <p>Pacote compactado com os principais artigos científicos citados na revisão bibliográfica do projeto.</p>
+          <a class="btn-download" href="assets/Referencias.zip" download>Baixar ZIP →</a>
+        </div>
+      </div>
+      <div class="download-note">
+        <span class="info-dot">ⓘ</span>
+        <span>Os arquivos acima já correspondem à versão real do projeto anexada pela equipe. Novas versões, se houver, serão disponibilizadas nesta mesma página.</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="brand"><span class="brand-mark"></span> Integra Campus</div>
+        <p>SuperApp educacional para o uso consciente de smartphones na educação básica. Projeto desenvolvido pela equipe Hack'n Roll para o HackaTudo 2026.</p>
+      </div>
+      <div>
+        <h5>Navegação</h5>
+        <ul>
+          <li><a href="index.html#solucao">A solução</a></li>
+          <li><a href="documentacao.html">Documentação</a></li>
+          <li><a href="simulacao.html">Simulação</a></li>
+          <li><a href="index.html#equipe">Equipe</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Referências principais</h5>
+        <ul>
+          <li>Sunday, Adesope &amp; Maarhuis (2021)</li>
+          <li>Campbell et al. (2024)</li>
+          <li>UNESCO — GEM Report</li>
+          <li>Lei nº 15.100/2025 e LGPD</li>
+        </ul>
+      </div>
+      <div>
+        <h5>Projeto</h5>
+        <ul>
+          <li>HackaTudo 2026</li>
+          <li>Equipe Hack'n Roll</li>
+          <li>36 referências científicas</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Integra Campus — Equipe Hack'n Roll. Protótipo conceitual para o HackaTudo.</span>
+      <span>Feito com dados científicos, entrevista de campo e muito café.</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

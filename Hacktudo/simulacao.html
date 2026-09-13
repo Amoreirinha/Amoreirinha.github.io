@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Simulação Interativa — Integra Campus</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<nav class="topnav">
+  <div class="wrap">
+    <a href="index.html" class="brand"><span class="brand-mark"></span> Integra Campus</a>
+    <div class="nav-links">
+<a href="index.html#inicio">Início</a>
+      <a href="documentacao.html">Documentação</a>
+      <a href="simulacao.html">Simulação PC</a>
+      <a href="index.html#equipe">Equipe</a>
+      <a href="https://www.figma.com/proto/yFv2aK2eHJ5nF9Hv6hK9Bt/Untitled?node-id=1-212&p=f&t=SdXk55OSvxdfg4xi-1&scaling=min-zoom&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=1%3A212&show-proto-sidebar=1" class="nav-cta">Ver simulação do App</a>
+    </div>
+  </div>
+</nav>
+
+<section class="page-hero">
+  <div class="wrap">
+    <a href="index.html" class="back-link">← Voltar à página inicial</a>
+    <span class="eyebrow">Simulação interativa</span>
+    <h1>Veja o Integra Campus em funcionamento</h1>
+    <p>Alterne entre os quatro perfis de acesso do sistema — Aluno, Professor, Responsável e Escola — e explore os módulos completos descritos no projeto: Modo Sala de Foco, gamificação, IA educacional, bem-estar digital, controle parental e analytics.</p>
+  </div>
+</section>
+
+<section class="sim-page-shell">
+  <div class="wrap">
+
+    <div class="sim-shell">
+      <div class="sim-topbar">
+        <span class="sim-dot d1"></span><span class="sim-dot d2"></span><span class="sim-dot d3"></span>
+        <span>integracampus.app — dashboard institucional</span>
+      </div>
+      <div class="sim-body">
+        <div class="sim-sidebar">
+          <div class="sim-logo"><span class="brand-mark"></span>Integra Campus</div>
+          <div class="role-label">Perfis de acesso</div>
+          <button class="role-btn active" data-role="aluno"><span class="ic"></span>Aluno</button>
+          <button class="role-btn" data-role="professor"><span class="ic"></span>Professor</button>
+          <button class="role-btn" data-role="responsavel"><span class="ic"></span>Responsável</button>
+          <button class="role-btn" data-role="escola"><span class="ic"></span>Escola</button>
+        </div>
+
+        <div class="sim-main">
+
+          <!-- ======================= ALUNO ======================= -->
+          <div class="sim-panel active" id="panel-aluno">
+            <div class="sim-head">
+              <div><h3>Olá, Maria Eduarda</h3><p>Turma 7A · Ensino Fundamental II</p></div>
+              <div class="sim-pill"><span class="dot"></span>Modo Sala de Foco: inativo</div>
+            </div>
+
+            <div class="sim-tabbar">
+              <button class="sim-subtab active" data-sub="aluno-geral">Visão geral</button>
+              <button class="sim-subtab" data-sub="aluno-missoes">Missões e Desafios</button>
+              <button class="sim-subtab" data-sub="aluno-perfil">Perfil Acadêmico</button>
+              <button class="sim-subtab" data-sub="aluno-bemestar">Bem-estar Digital</button>
+            </div>
+
+            <div class="sim-subpanel active" id="sub-aluno-geral">
+              <div class="sim-cardgrid">
+                <div class="sim-card blue">
+                  <h4>Campus Virtual <span class="tag-sm">6 atalhos</span></h4>
+                  <div class="list-row"><span class="lname">📖 Biblioteca</span><span class="lmeta">12 livros salvos</span></div>
+                  <div class="list-row"><span class="lname">🎓 Cursos</span><span class="lmeta">Khan Academy · SENAI</span></div>
+                  <div class="list-row"><span class="lname">📝 Notas</span><span class="lmeta">Média 8,4</span></div>
+                </div>
+                <div class="sim-card">
+                  <h4>Banco de Horas <span class="tag-sm" style="background:#F1E4FF; color:var(--purple);">220 XP</span></h4>
+                  <div class="list-row"><span class="lname">Missão: Ler 30 min</span><span class="chip green">Concluída</span></div>
+                  <div class="list-row"><span class="lname">Curso complementar</span><span class="chip orange">Em curso</span></div>
+                  <div class="list-row"><span class="lname">Badge "Leitor da Semana"</span><span class="chip blue">Novo</span></div>
+                </div>
+                <div class="sim-card">
+                  <h4>Bem-estar Digital</h4>
+                  <div style="font-size:13px; color:var(--ink-soft); margin-bottom:4px;">Tempo de tela hoje</div>
+                  <div class="progress-track"><div class="progress-fill" style="width:64%; background:var(--green);"></div></div>
+                  <div style="font-size:12px; color:var(--ink-soft); margin-top:8px;">2h 05min de 3h 30min · próxima pausa em 12 min</div>
+                </div>
+              </div>
+              <div class="sim-note">Dados fictícios para fins de demonstração. Nenhuma informação real de estudantes é utilizada nesta simulação.</div>
+            </div>
+
+            <div class="sim-subpanel" id="sub-aluno-missoes">
+              <div class="sim-cardgrid two">
+                <div class="sim-card">
+                  <h4>Missões da semana <span class="tag-sm" style="background:#F1E4FF; color:var(--purple);">Nível 6</span></h4>
+                  <div class="mission-card">
+                    <div class="mission-top"><span class="mname">📚 Ler 30 minutos</span><span class="mreward">+20 XP</span></div>
+                    <div class="progress-track"><div class="progress-fill" style="width:100%; background:var(--green);"></div></div>
+                  </div>
+                  <div class="mission-card">
+                    <div class="mission-top"><span class="mname">🎓 Concluir curso complementar</span><span class="mreward">+50 XP</span></div>
+                    <div class="progress-track"><div class="progress-fill" style="width:70%; background:var(--card-blue-deep);"></div></div>
+                  </div>
+                  <div class="mission-card">
+                    <div class="mission-top"><span class="mname">🎥 Assistir vídeo educativo</span><span class="mreward">+15 moedas</span></div>
+                    <div class="progress-track"><div class="progress-fill" style="width:40%; background:var(--orange);"></div></div>
+                  </div>
+                  <div class="mission-card">
+                    <div class="mission-top"><span class="mname">🏆 Desafio colaborativo da turma</span><span class="mreward">+100 XP</span></div>
+                    <div class="progress-track"><div class="progress-fill" style="width:18%; background:var(--purple);"></div></div>
+                  </div>
+                </div>
+                <div class="sim-card">
+                  <h4>Badges conquistadas</h4>
+                  <div class="badge-row">
+                    <div class="badge-pill"><span class="b-ic">📖</span>Leitor da Semana</div>
+                    <div class="badge-pill"><span class="b-ic">🎯</span>Foco Total</div>
+                    <div class="badge-pill"><span class="b-ic">🤝</span>Colaborador</div>
+                    <div class="badge-pill locked"><span class="b-ic">🚀</span>Explorador</div>
+                    <div class="badge-pill locked"><span class="b-ic">🧠</span>Mente Afiada</div>
+                  </div>
+                  <div class="sim-note" style="margin-top:16px;">Missões e badges reforçam hábitos de estudo e reduzem a dependência de recompensas das redes sociais — base científica no Módulo 4 (Gamificação e Banco de Horas).</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="sim-subpanel" id="sub-aluno-perfil">
+              <div class="sim-cardgrid two">
+                <div class="sim-card">
+                  <h4>Perfil Acadêmico Inteligente</h4>
+                  <div style="font-size:13px; color:var(--ink-soft); margin-bottom:8px;">Disciplinas favoritas</div>
+                  <div><span class="subject-tag fav">📐 Matemática</span><span class="subject-tag fav">🧪 Ciências</span><span class="subject-tag fav">🌍 Geografia</span></div>
+                  <div style="font-size:13px; color:var(--ink-soft); margin:16px 0 8px;">Dificuldades identificadas pela IA</div>
+                  <div><span class="subject-tag diff">✍️ Redação</span><span class="subject-tag diff">📜 História</span></div>
+                </div>
+                <div class="sim-card">
+                  <h4>Progresso por disciplina</h4>
+                  <div class="list-row"><span class="lname">Matemática</span><span class="chip green">Avançado</span></div>
+                  <div class="list-row"><span class="lname">Ciências</span><span class="chip green">Avançado</span></div>
+                  <div class="list-row"><span class="lname">Português</span><span class="chip blue">Intermediário</span></div>
+                  <div class="list-row"><span class="lname">Redação</span><span class="chip orange">Reforço sugerido</span></div>
+                  <div class="sim-note" style="margin-top:12px;">Recomendação da IA: exercícios extras de redação e um vídeo sobre estrutura de parágrafos.</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="sim-subpanel" id="sub-aluno-bemestar">
+              <div class="sim-cardgrid two">
+                <div class="sim-card blue">
+                  <h4>Tempo de tela — últimos 7 dias</h4>
+                  <div class="bar-row">
+                    <div class="bar" style="height:55%; background:var(--card-blue-deep);"></div>
+                    <div class="bar" style="height:70%; background:var(--card-blue-deep);"></div>
+                    <div class="bar" style="height:40%; background:var(--card-blue-deep);"></div>
+                    <div class="bar" style="height:60%; background:var(--card-blue-deep);"></div>
+                    <div class="bar" style="height:80%; background:var(--red);"></div>
+                    <div class="bar" style="height:35%; background:var(--card-blue-deep);"></div>
+                    <div class="bar" style="height:50%; background:var(--card-blue-deep);"></div>
+                  </div>
+                  <div style="font-size:12.5px; color:#2b4c6f;">Quinta-feira acima do limite saudável — pausa sugerida pelo app.</div>
+                </div>
+                <div class="sim-card">
+                  <h4>Pausas inteligentes</h4>
+                  <div class="list-row"><span class="lname">Próxima pausa</span><span class="chip blue">Em 12 min</span></div>
+                  <div class="list-row"><span class="lname">Pausas feitas hoje</span><span class="chip green">2 de 3</span></div>
+                  <div class="list-row"><span class="lname">Lembrete de sono</span><span class="chip orange">22h30</span></div>
+                  <div class="sim-note" style="margin-top:12px;">O app não realiza diagnóstico psicológico — apenas promove hábitos digitais mais saudáveis e sinaliza padrões de atenção aos responsáveis.</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- ======================= PROFESSOR ======================= -->
+          <div class="sim-panel" id="panel-professor">
+            <div class="sim-head">
+              <div><h3>Painel do Professor</h3><p>Prof. Ana Souza · Matemática · Turma 7A</p></div>
+              <div class="sim-pill" id="focus-status"><span class="dot" style="background:var(--ink-soft);"></span>Sala de Foco: parada</div>
+            </div>
+
+            <div class="sim-tabbar">
+              <button class="sim-subtab active" data-sub="prof-sala">Sala de Foco</button>
+              <button class="sim-subtab" data-sub="prof-relatorios">Relatórios da IA</button>
+              <button class="sim-subtab" data-sub="prof-blacklist">Blacklist Colaborativa</button>
+            </div>
+
+            <div class="sim-subpanel active" id="sub-prof-sala">
+              <div class="focus-launch">
+                <div class="focus-launch-head">
+                  <div>
+                    <h4 style="font-size:16px; margin-bottom:4px;">Modo Sala de Foco</h4>
+                    <p style="font-size:13px; color:var(--ink-soft);">Selecione os apps permitidos e inicie a atividade.</p>
+                  </div>
+                  <div style="display:flex; gap:10px;">
+                    <button class="action-btn secondary" onclick="openActivityModal()">+ Criar Nova Atividade</button>
+                    <button class="action-btn" id="focus-toggle-btn" onclick="toggleFocus()">Iniciar atividade</button>
+                  </div>
+                </div>
+                <div class="app-toggle-grid" id="app-toggles">
+                  <div class="app-toggle allowed" onclick="toggleApp(this)">Google Classroom</div>
+                  <div class="app-toggle allowed" onclick="toggleApp(this)">Calculadora</div>
+                  <div class="app-toggle blocked" onclick="toggleApp(this)">Instagram</div>
+                  <div class="app-toggle blocked" onclick="toggleApp(this)">TikTok</div>
+                  <div class="app-toggle allowed" onclick="toggleApp(this)">Biblioteca Digital</div>
+                  <div class="app-toggle blocked" onclick="toggleApp(this)">Jogos</div>
+                  <div class="app-toggle allowed" onclick="toggleApp(this)">Khan Academy</div>
+                  <div class="app-toggle blocked" onclick="toggleApp(this)">WhatsApp</div>
+                </div>
+                <div class="sim-note">Clique em um app para alterná-lo entre permitido (whitelist) e bloqueado (blacklist), ou use "Criar Nova Atividade" para configurar do zero.</div>
+              </div>
+
+              <div class="sim-cardgrid two">
+                <div class="sim-card">
+                  <h4>Alertas automáticos <span class="tag-sm" style="background:#FBE3E3; color:var(--red);" id="alert-count">2 ativos</span></h4>
+                  <div class="alert-box" id="alert-1">
+                    <div><strong>João Pedro</strong>tentou acessar Instagram às 09:32</div>
+                    <button class="action-btn small" onclick="dismissAlert('alert-1')">Resolver</button>
+                  </div>
+                  <div class="alert-box" id="alert-2">
+                    <div><strong>Lucas Martins</strong>tentou acessar TikTok às 09:41</div>
+                    <button class="action-btn small" onclick="dismissAlert('alert-2')">Resolver</button>
+                  </div>
+                </div>
+                <div class="sim-card">
+                  <h4>Painel da Turma</h4>
+                  <div class="list-row"><span class="lname">João Pedro</span><span class="chip orange">Instagram bloqueado</span></div>
+                  <div class="list-row"><span class="lname">Maria Eduarda</span><span class="chip green">Atividade em dia</span></div>
+                  <div class="list-row"><span class="lname">Lucas Martins</span><span class="chip red">TikTok bloqueado</span></div>
+                  <div class="sim-note" style="margin-top:0;">O professor recebe apenas alertas de comportamento digital — nunca acesso à tela ou ao conteúdo pessoal do estudante.</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="sim-subpanel" id="sub-prof-relatorios">
+              <div class="sim-cardgrid two">
+                <div class="sim-card">
+                  <h4>Relatório de IA da turma</h4>
+                  <div class="bar-row">
+                    <div class="bar" style="height:70%; background:var(--card-blue-deep);"></div>
+                    <div class="bar" style="height:45%; background:var(--orange);"></div>
+                    <div class="bar" style="height:90%; background:var(--purple);"></div>
+                    <div class="bar" style="height:55%; background:var(--green);"></div>
+                    <div class="bar" style="height:35%; background:var(--red);"></div>
+                  </div>
+                  <div style="font-size:12.5px; color:var(--ink-soft);">Desempenho médio por atividade — gerado automaticamente pela IA a cada aula.</div>
+                </div>
+                <div class="sim-card">
+                  <h4>Sugestões de correção</h4>
+                  <div class="list-row"><span class="lname">Lista de exercícios · Turma 7A</span><span class="chip blue">32 corrigidas</span></div>
+                  <div class="list-row"><span class="lname">Dúvida frequente</span><span class="lmeta">Equações do 1º grau</span></div>
+                  <div class="list-row"><span class="lname">Redações pendentes</span><span class="chip orange">4</span></div>
+                  <div class="sim-note" style="margin-top:12px;">A IA realiza correção inicial de atividades objetivas e destaca as dúvidas mais frequentes — o professor mantém a decisão final e a mediação pedagógica.</div>
+                </div>
+              </div>
+              <div class="sim-cardgrid">
+                <div class="sim-card">
+                  <h4>Resumo de desempenho — Turma 7A</h4>
+                  <div class="list-row"><span class="lname">Média geral</span><span class="chip green">7,8</span></div>
+                  <div class="list-row"><span class="lname">Frequência</span><span class="chip green">94%</span></div>
+                  <div class="list-row"><span class="lname">Alunos com queda de desempenho</span><span class="chip orange">3</span></div>
+                </div>
+                <div class="sim-card">
+                  <h4>Tempo economizado esta semana</h4>
+                  <div class="focus-ring" style="margin:0 auto 12px;"><span>4h10</span></div>
+                  <div style="font-size:12.5px; text-align:center; color:var(--ink-soft);">em correções e relatórios automatizados pela IA</div>
+                </div>
+                <div class="sim-card">
+                  <h4>Blacklist sugerida pela IA</h4>
+                  <div class="list-row"><span class="lname">Novo app "ClipRápido"</span><span class="chip red">Sugestão</span></div>
+                  <div class="list-row"><span class="lname">Jogo "SkyBattle"</span><span class="chip red">Sugestão</span></div>
+                </div>
+              </div>
+            </div>
+
+            <div class="sim-subpanel" id="sub-prof-blacklist">
+              <div class="sim-card" style="margin-bottom:16px;">
+                <h4>Blacklist Colaborativa <span class="tag-sm" style="background:#FBE3E3; color:var(--red);">6 apps bloqueados</span></h4>
+                <div class="bl-item"><span class="lname">Instagram</span><span class="chip red">Bloqueado pela escola</span></div>
+                <div class="bl-item"><span class="lname">TikTok</span><span class="chip red">Bloqueado pela escola</span></div>
+                <div class="bl-item"><span class="lname">Jogos (categoria)</span><span class="chip red">Bloqueado pela escola</span></div>
+                <div class="bl-item">
+                  <span class="lname">ClipRápido <span class="bl-suggest-src">sugerido por você · 18/09</span></span>
+                  <span class="chip orange">Aguardando validação</span>
+                </div>
+                <div class="bl-item">
+                  <span class="lname">SkyBattle <span class="bl-suggest-src">sugerido pela IA · 20/09</span></span>
+                  <span class="chip orange">Aguardando validação</span>
+                </div>
+              </div>
+              <div class="sim-cardgrid two">
+                <div class="sim-card">
+                  <h4>Sugerir novo aplicativo</h4>
+                  <div class="modal-field">
+                    <label>Nome do aplicativo</label>
+                    <input class="modal-input" type="text" placeholder="Ex: NovoApp">
+                  </div>
+                  <button class="action-btn">Enviar sugestão para a escola</button>
+                </div>
+                <div class="sim-card">
+                  <h4>Como funciona</h4>
+                  <div class="list-row"><span class="lname">Professor</span><span class="lmeta">Sugere novos apps</span></div>
+                  <div class="list-row"><span class="lname">Escola</span><span class="lmeta">Valida categorias permitidas</span></div>
+                  <div class="list-row"><span class="lname">IA</span><span class="lmeta">Identifica padrões emergentes</span></div>
+                  <div class="sim-note" style="margin-top:12px;">Ideia incorporada diretamente da entrevista de campo: aplicativos novos surgem o tempo todo e precisam de resposta rápida da comunidade escolar.</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- ======================= RESPONSAVEL ======================= -->
+          <div class="sim-panel" id="panel-responsavel">
+            <div class="sim-head">
+              <div><h3>Painel dos Responsáveis</h3><p>Acompanhamento de Maria Eduarda · Turma 7A</p></div>
+              <div class="sim-pill"><span class="dot"></span>Tudo em dia</div>
+            </div>
+
+            <div class="sim-tabbar">
+              <button class="sim-subtab active" data-sub="resp-geral">Visão geral</button>
+              <button class="sim-subtab" data-sub="resp-campanha">Campanha de Conscientização</button>
+              <button class="sim-subtab" data-sub="resp-historico">Histórico de Alertas</button>
+            </div>
+
+            <div class="sim-subpanel active" id="sub-resp-geral">
+              <div class="sim-cardgrid">
+                <div class="sim-card blue">
+                  <h4>Tempo de tela</h4>
+                  <div class="focus-ring" style="margin:0 auto 12px;"><span>3h20</span></div>
+                  <div style="font-size:12.5px; text-align:center; color:#2b4c6f;">de um limite diário de 3h 30min</div>
+                </div>
+                <div class="sim-card">
+                  <h4>Frequência e notas</h4>
+                  <div class="list-row"><span class="lname">Frequência</span><span class="chip green">96%</span></div>
+                  <div class="list-row"><span class="lname">Média geral</span><span class="chip blue">8,4</span></div>
+                  <div class="list-row"><span class="lname">Tarefas pendentes</span><span class="chip orange">2</span></div>
+                </div>
+                <div class="sim-card">
+                  <h4>Alertas de bem-estar</h4>
+                  <div class="alert-box">
+                    <div><strong>Padrão de sono</strong>Uso tarde da noite detectado 2x esta semana</div>
+                  </div>
+                  <div class="sim-note" style="margin-top:0;">Alertas são preventivos e não substituem acompanhamento profissional.</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="sim-subpanel" id="sub-resp-campanha">
+              <div class="sim-cardgrid two">
+                <div>
+                  <div class="video-card">
+                    <div class="video-thumb">▶</div>
+                    <div><h5>Como acompanhar seu filho no Integra Campus</h5><p>Tutorial · 4 min</p></div>
+                  </div>
+                  <div class="video-card">
+                    <div class="video-thumb">▶</div>
+                    <div><h5>Tempo de tela: limites saudáveis por idade</h5><p>Vídeo educativo · 6 min</p></div>
+                  </div>
+                  <div class="video-card">
+                    <div class="video-thumb">▶</div>
+                    <div><h5>O que fazer quando chega um alerta de bem-estar</h5><p>Tutorial · 3 min</p></div>
+                  </div>
+                  <div class="video-card">
+                    <div class="video-thumb">▶</div>
+                    <div><h5>Mediação digital positiva em casa</h5><p>Vídeo educativo · 5 min</p></div>
+                  </div>
+                </div>
+                <div class="sim-card">
+                  <h4>Sobre a campanha</h4>
+                  <p style="font-size:13.5px; color:var(--ink-soft); margin-bottom:12px;">Criada a partir da entrevista de campo: muitos responsáveis não conhecem as ferramentas digitais já disponíveis na escola.</p>
+                  <div class="list-row"><span class="lname">Vídeos assistidos</span><span class="chip green">3 de 4</span></div>
+                  <div class="list-row"><span class="lname">FAQ disponível</span><span class="chip blue">12 perguntas</span></div>
+                  <div class="list-row"><span class="lname">Onboarding concluído</span><span class="chip green">Sim</span></div>
+                </div>
+              </div>
+            </div>
+
+            <div class="sim-subpanel" id="sub-resp-historico">
+              <div class="sim-card">
+                <h4>Histórico de Alertas de Bem-estar</h4>
+                <div class="alert-box">
+                  <div><strong>18/09 · 23h10</strong>Uso do aplicativo fora do horário recomendado.</div>
+                </div>
+                <div class="alert-box">
+                  <div><strong>15/09 · 22h48</strong>Padrão de sono — uso tarde da noite detectado.</div>
+                </div>
+                <div class="alert-box">
+                  <div><strong>09/09 · 19h30</strong>Tempo de tela recreativo acima da média da semana.</div>
+                </div>
+                <div class="sim-note" style="margin-top:0;">Todos os alertas ficam registrados para acompanhamento, com transparência total sobre os dados considerados pela IA.</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- ======================= ESCOLA ======================= -->
+          <div class="sim-panel" id="panel-escola">
+            <div class="sim-head">
+              <div><h3>Gestão Escolar</h3><p>E.E. Integra Campus · Rede Estadual</p></div>
+              <div class="sim-pill"><span class="dot"></span>328 alunos ativos</div>
+            </div>
+
+            <div class="sim-tabbar">
+              <button class="sim-subtab active" data-sub="escola-analytics">Analytics Educacionais</button>
+              <button class="sim-subtab" data-sub="escola-politicas">Políticas de Uso</button>
+              <button class="sim-subtab" data-sub="escola-integracoes">Integrações</button>
+            </div>
+
+            <div class="sim-subpanel active" id="sub-escola-analytics">
+              <div class="sim-cardgrid">
+                <div class="sim-card">
+                  <h4>Engajamento por turma</h4>
+                  <div class="bar-row">
+                    <div class="bar" style="height:60%; background:var(--card-blue-deep);"></div>
+                    <div class="bar" style="height:80%; background:var(--card-blue-deep);"></div>
+                    <div class="bar" style="height:40%; background:var(--card-blue-deep);"></div>
+                    <div class="bar" style="height:95%; background:var(--card-blue-deep);"></div>
+                    <div class="bar" style="height:70%; background:var(--card-blue-deep);"></div>
+                  </div>
+                  <div style="font-size:12.5px; color:var(--ink-soft);">Engajamento médio por turma no Campus Virtual.</div>
+                </div>
+                <div class="sim-card">
+                  <h4>Desempenho geral da escola</h4>
+                  <div class="bar-row">
+                    <div class="bar" style="height:50%; background:var(--green);"></div>
+                    <div class="bar" style="height:65%; background:var(--green);"></div>
+                    <div class="bar" style="height:58%; background:var(--orange);"></div>
+                    <div class="bar" style="height:72%; background:var(--green);"></div>
+                    <div class="bar" style="height:44%; background:var(--red);"></div>
+                  </div>
+                  <div style="font-size:12.5px; color:var(--ink-soft);">Média por disciplina no último bimestre.</div>
+                </div>
+                <div class="sim-card">
+                  <h4>Indicadores gerais</h4>
+                  <div class="list-row"><span class="lname">Frequência média</span><span class="chip green">93%</span></div>
+                  <div class="list-row"><span class="lname">Alertas de bem-estar (mês)</span><span class="chip orange">14</span></div>
+                  <div class="list-row"><span class="lname">Adesão das famílias ao app</span><span class="chip blue">78%</span></div>
+                </div>
+              </div>
+            </div>
+
+            <div class="sim-subpanel" id="sub-escola-politicas">
+              <div class="sim-cardgrid two">
+                <div class="sim-card">
+                  <h4>Configurações de Políticas de Uso</h4>
+                  <div class="policy-row">
+                    <div><div class="pname">Blacklist colaborativa</div><div class="pdesc">Professores podem sugerir novos apps</div></div>
+                    <div class="switch on" onclick="toggleSwitch(this)"><div class="knob"></div></div>
+                  </div>
+                  <div class="policy-row">
+                    <div><div class="pname">Bloqueio temporal automático</div><div class="pdesc">Aplica-se apenas durante o horário de aula</div></div>
+                    <div class="switch on" onclick="toggleSwitch(this)"><div class="knob"></div></div>
+                  </div>
+                  <div class="policy-row">
+                    <div><div class="pname">Exceção pedagógica</div><div class="pdesc">Professor pode liberar apps fora da whitelist padrão</div></div>
+                    <div class="switch on" onclick="toggleSwitch(this)"><div class="knob"></div></div>
+                  </div>
+                  <div class="policy-row">
+                    <div><div class="pname">Notificações aos responsáveis</div><div class="pdesc">Envio automático de alertas de bem-estar</div></div>
+                    <div class="switch on" onclick="toggleSwitch(this)"><div class="knob"></div></div>
+                  </div>
+                </div>
+                <div class="sim-card">
+                  <h4>Horários de bloqueio</h4>
+                  <div class="time-input-row" style="margin-bottom:14px;">
+                    <span class="lname" style="width:120px;">Manhã</span>
+                    <input type="time" value="07:30"> até <input type="time" value="12:00">
+                  </div>
+                  <div class="time-input-row" style="margin-bottom:14px;">
+                    <span class="lname" style="width:120px;">Tarde</span>
+                    <input type="time" value="13:00"> até <input type="time" value="17:30">
+                  </div>
+                  <div class="sim-note">Fora desses horários, o Modo Sala de Foco não é aplicado automaticamente — o uso segue as regras gerais da escola e da família.</div>
+                  <button class="action-btn" style="margin-top:14px;">Salvar configurações</button>
+                </div>
+              </div>
+            </div>
+
+            <div class="sim-subpanel" id="sub-escola-integracoes">
+              <div class="sim-card">
+                <h4>Integrações</h4>
+                <div class="list-row"><span class="lname">Sala do Futuro</span><span class="chip green">Conectado</span></div>
+                <div class="list-row"><span class="lname">Google Classroom</span><span class="chip green">Conectado</span></div>
+                <div class="list-row"><span class="lname">Microsoft Teams Educação</span><span class="chip orange">Pendente</span></div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- Modal: Criar Nova Atividade -->
+<div class="modal-overlay" id="activity-modal">
+  <div class="modal-box">
+    <div class="modal-head">
+      <h3>Criar Nova Atividade</h3>
+      <button class="modal-close" onclick="closeActivityModal()">✕</button>
+    </div>
+    <div class="modal-sub">Configure a atividade e selecione a whitelist de apps liberados durante ela.</div>
+    <div class="modal-field">
+      <label>Nome da atividade</label>
+      <input class="modal-input" type="text" placeholder="Ex: Pesquisa sobre frações" value="Pesquisa sobre frações">
+    </div>
+    <div class="modal-field">
+      <label>Duração</label>
+      <input class="modal-input" type="text" placeholder="Ex: 40 minutos" value="40 minutos">
+    </div>
+    <div class="modal-field">
+      <label>Apps permitidos (whitelist)</label>
+      <div class="app-toggle-grid" id="modal-app-toggles">
+        <div class="app-toggle allowed" onclick="toggleApp(this)">Google Classroom</div>
+        <div class="app-toggle allowed" onclick="toggleApp(this)">Khan Academy</div>
+        <div class="app-toggle blocked" onclick="toggleApp(this)">Instagram</div>
+        <div class="app-toggle blocked" onclick="toggleApp(this)">TikTok</div>
+        <div class="app-toggle allowed" onclick="toggleApp(this)">Biblioteca Digital</div>
+        <div class="app-toggle blocked" onclick="toggleApp(this)">Jogos</div>
+      </div>
+    </div>
+    <div class="modal-actions">
+      <button class="action-btn secondary" onclick="closeActivityModal()">Cancelar</button>
+      <button class="action-btn" onclick="closeActivityModal()">Iniciar atividade</button>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="brand"><span class="brand-mark"></span> Integra Campus</div>
+        <p>SuperApp educacional para o uso consciente de smartphones na educação básica. Projeto desenvolvido pela equipe Hack'n Roll para o HackaTudo 2026.</p>
+      </div>
+      <div>
+        <h5>Navegação</h5>
+        <ul>
+          <li><a href="index.html#solucao">A solução</a></li>
+          <li><a href="documentacao.html">Documentação</a></li>
+          <li><a href="simulacao.html">Simulação</a></li>
+          <li><a href="index.html#equipe">Equipe</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Referências principais</h5>
+        <ul>
+          <li>Sunday, Adesope &amp; Maarhuis (2021)</li>
+          <li>Campbell et al. (2024)</li>
+          <li>UNESCO — GEM Report</li>
+          <li>Lei nº 15.100/2025 e LGPD</li>
+        </ul>
+      </div>
+      <div>
+        <h5>Projeto</h5>
+        <ul>
+          <li>HackaTudo 2026</li>
+          <li>Equipe Hack'n Roll</li>
+          <li>36 referências científicas</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Integra Campus — Equipe Hack'n Roll. Protótipo conceitual para o HackaTudo.</span>
+      <span>Feito com dados científicos, entrevista de campo e muito café.</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // ---- Troca de perfil (Aluno / Professor / Responsável / Escola) ----
+  const roleButtons = document.querySelectorAll('.role-btn');
+  const panels = document.querySelectorAll('.sim-panel');
+  roleButtons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      roleButtons.forEach(b => b.classList.remove('active'));
+      panels.forEach(p => p.classList.remove('active'));
+      btn.classList.add('active');
+      document.getElementById('panel-' + btn.dataset.role).classList.add('active');
+    });
+  });
+
+  // ---- Troca de sub-abas dentro de cada perfil ----
+  document.querySelectorAll('.sim-panel').forEach(panel => {
+    const tabs = panel.querySelectorAll('.sim-subtab');
+    const subs = panel.querySelectorAll('.sim-subpanel');
+    tabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        tabs.forEach(t => t.classList.remove('active'));
+        subs.forEach(s => s.classList.remove('active'));
+        tab.classList.add('active');
+        document.getElementById('sub-' + tab.dataset.sub).classList.add('active');
+      });
+    });
+  });
+
+  // ---- Modo Sala de Foco ----
+  let focusActive = false;
+  function toggleFocus(){
+    focusActive = !focusActive;
+    const btn = document.getElementById('focus-toggle-btn');
+    const status = document.getElementById('focus-status');
+    if(focusActive){
+      btn.textContent = 'Encerrar atividade';
+      status.innerHTML = '<span class="dot"></span>Sala de Foco: ativa';
+    } else {
+      btn.textContent = 'Iniciar atividade';
+      status.innerHTML = '<span class="dot" style="background:var(--ink-soft);"></span>Sala de Foco: parada';
+    }
+  }
+
+  // ---- Toggle whitelist/blacklist ----
+  function toggleApp(el){
+    if(el.classList.contains('allowed')){
+      el.classList.remove('allowed');
+      el.classList.add('blocked');
+    } else {
+      el.classList.remove('blocked');
+      el.classList.add('allowed');
+    }
+  }
+
+  // ---- Alertas ----
+  function dismissAlert(id){
+    const el = document.getElementById(id);
+    el.classList.add('dismissed');
+    setTimeout(()=>{ el.style.display='none'; updateAlertCount(); }, 200);
+  }
+  function updateAlertCount(){
+    const remaining = document.querySelectorAll('#panel-professor .alert-box:not([style*="display: none"])').length;
+    document.getElementById('alert-count').textContent = remaining + ' ativos';
+  }
+
+  // ---- Modal: Criar Nova Atividade ----
+  function openActivityModal(){
+    document.getElementById('activity-modal').classList.add('open');
+  }
+  function closeActivityModal(){
+    document.getElementById('activity-modal').classList.remove('open');
+  }
+
+  // ---- Switches de políticas de uso ----
+  function toggleSwitch(el){
+    el.classList.toggle('on');
+  }
+</script>
+
+</body>
+</html>
