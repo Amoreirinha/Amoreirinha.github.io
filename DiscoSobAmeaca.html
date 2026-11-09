@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="pt-BR"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap">
+<title>Disco Sob Ameaça</title>
+<style>
+:root{--bg:#f6f6f3;--sf:#fff;--tx:#1c1c1a;--mt:#66665f;--bd:#d6d6cf;--free:#e3e3dd;--dat:#3b82f6;--idx:#8b5cf6;--log:#facc15;--logd:#fbf1b8;--bad:#ef4444;--ok:#15803d;--ac:#2563eb;color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#161614;--sf:#222220;--tx:#eeeeea;--mt:#a3a39b;--bd:#3a3a36;--free:#33332f;--logd:#4a4420;--ok:#4ade80;--ac:#60a5fa;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#161614;--sf:#222220;--tx:#eeeeea;--mt:#a3a39b;--bd:#3a3a36;--free:#33332f;--logd:#4a4420;--ok:#4ade80;--ac:#60a5fa;color-scheme:dark}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--tx);font:16px/1.5 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+header{display:flex;justify-content:space-between;align-items:center;padding:12px 16px;max-width:1000px;margin:auto}
+h1{font-size:1.25rem;margin:0}h3{margin:.2em 0 .5em;font-size:1.05rem}
+main{max-width:1000px;margin:auto;padding:0 16px 32px}
+button{font:inherit;min-height:44px;padding:8px 14px;border-radius:10px;border:1px solid var(--bd);background:var(--sf);color:var(--tx);cursor:pointer}
+button:hover:not(:disabled){border-color:var(--ac)}button:disabled{opacity:.45;cursor:not-allowed}
+button.pri{background:var(--ac);border-color:var(--ac);color:#fff}button.dng{background:var(--bad);border-color:var(--bad);color:#fff}
+button.ghost{background:none}
+input,select{font:inherit;min-height:44px;padding:6px 10px;border-radius:10px;border:1px solid var(--bd);background:var(--sf);color:var(--tx)}
+.card{background:var(--sf);border:1px solid var(--bd);border-radius:14px;padding:14px}
+.lead{font-size:1.1rem;color:var(--mt);max-width:60ch}
+.menu{display:grid;gap:10px;max-width:420px}.menu button{text-align:left;padding:14px}.menu small{display:block;color:var(--mt)}
+.top{display:flex;gap:10px;align-items:center;justify-content:space-between;margin-bottom:10px}
+.disk{display:grid;grid-template-columns:repeat(8,1fr);gap:5px;max-width:520px;margin:0 auto}
+.b{aspect-ratio:1;border-radius:8px;background:var(--free);position:relative;display:flex;align-items:center;justify-content:center;font-weight:700;color:#fff;font-size:.95rem;border:2px solid transparent}
+.b i{position:absolute;top:1px;left:4px;font:600 .6rem system-ui;opacity:.75;color:var(--tx)}
+.b.dados{background:var(--dat)}.b.indice{background:var(--idx)}.b.corrompido{background:var(--bad)}
+.b.log{background:var(--logd);color:#7a6400}.b.log.on{background:var(--log)}
+.b.dados i,.b.indice i,.b.corrompido i,.b.log.on i{color:#fff}
+.b.sel{border-color:var(--tx);animation:bl .6s 3}
+@keyframes bl{50%{transform:scale(1.14)}}
+.flash .disk{animation:sh .1s 6}@keyframes sh{50%{transform:translateX(5px);outline:3px solid var(--bad)}}
+#banner{max-width:520px;margin:10px auto;min-height:3.2em;padding:10px 12px;border-left:4px solid var(--ac);background:var(--sf);border-radius:8px}
+.legend{display:flex;flex-wrap:wrap;gap:6px 12px;justify-content:center;font-size:.8rem;color:var(--mt);margin-bottom:14px}
+.legend s{display:inline-block;width:12px;height:12px;border-radius:3px;vertical-align:-1px;margin-right:4px;text-decoration:none}
+.cols{display:grid;gap:14px}@media(min-width:860px){.cols{grid-template-columns:1.2fr 1fr}}
+.row{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0}
+.mt,.chips{color:var(--mt);font-size:.9rem}
+table{border-collapse:collapse;width:100%;font-size:.9rem}td,th{border:1px solid var(--bd);padding:6px;text-align:left}
+.res{display:grid;gap:14px}@media(min-width:700px){.res{grid-template-columns:1fr 1fr}}
+.res .disk{max-width:340px}
+.key{border-left:4px solid var(--ok);padding:8px 12px;background:var(--sf);border-radius:8px;margin:10px 0}
+#modal{position:fixed;inset:0;background:#0008;display:flex;align-items:center;justify-content:center;padding:16px;z-index:9}
+#modal[hidden]{display:none}#mbox{background:var(--sf);border-radius:14px;padding:18px;max-width:560px;max-height:85vh;overflow:auto}
+[hidden]{display:none!important}code{background:var(--free);padding:1px 5px;border-radius:4px}
+/* ===== JAPANDI ===== */
+:root{--bg:#ebe5d9;--sf:#f6f2ea;--tx:#3a342c;--mt:#7b7265;--bd:#d4cab9;--free:#ddd3c1;--dat:#7c9070;--idx:#7a6f93;--log:#d6a95a;--logd:#eadfc4;--bad:#b4543a;--ok:#5e7a4c;--ac:#8a6a4a;--tray:#c3a67f;--tray2:#b39569}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#201c17;--sf:#2b261f;--tx:#ece4d6;--mt:#a89f8f;--bd:#443c31;--free:#3b352c;--dat:#6f8564;--idx:#8c82a8;--log:#c99a4a;--logd:#4d4128;--bad:#cf6a4b;--ok:#9cc17f;--ac:#c89b6a;--tray:#5b4932;--tray2:#4c3c28}}
+:root[data-theme="dark"]{--bg:#201c17;--sf:#2b261f;--tx:#ece4d6;--mt:#a89f8f;--bd:#443c31;--free:#3b352c;--dat:#6f8564;--idx:#8c82a8;--log:#c99a4a;--logd:#4d4128;--bad:#cf6a4b;--ok:#9cc17f;--ac:#c89b6a;--tray:#5b4932;--tray2:#4c3c28}
+body{font-family:"Zen Kaku Gothic New",system-ui,-apple-system,"Segoe UI",sans-serif;background-image:radial-gradient(rgba(120,100,70,.07) 1px,transparent 1px);background-size:5px 5px;overflow-x:hidden}
+body::before{content:"";position:fixed;inset:-20%;z-index:-1;pointer-events:none;background:radial-gradient(circle at 20% 30%,rgba(124,144,112,.2),transparent 40%),radial-gradient(circle at 80% 70%,rgba(180,120,80,.16),transparent 40%);animation:drift 24s ease-in-out infinite alternate}
+h1,h3,.lead{font-family:"Shippori Mincho",Georgia,"Times New Roman",serif;font-weight:700;letter-spacing:.02em}
+header{border-bottom:1px solid var(--bd);margin:0 auto 16px}
+h1::before{content:"";display:inline-block;width:.85em;height:.85em;border:2.5px solid var(--tx);border-right-color:transparent;border-radius:50%;margin-right:.5em;vertical-align:-.05em;animation:spin 9s linear infinite}
+main>section{animation:in .55s cubic-bezier(.2,.7,.2,1)}
+button{border-radius:12px;transition:transform .15s,box-shadow .25s,border-color .25s,background .25s}
+button:hover:not(:disabled){transform:translateY(-2px);box-shadow:0 8px 16px -8px rgba(70,50,30,.35)}
+button:active:not(:disabled){transform:scale(.95)}
+button.pri{background:var(--ac);border-color:var(--ac);color:var(--bg)}
+button.dng{background:var(--bad);border-color:var(--bad);color:var(--bg)}
+.go:not(:disabled){animation:pulse 1.6s ease-in-out infinite}
+.card{border-radius:18px;box-shadow:0 10px 26px -16px rgba(70,50,30,.4)}
+#banner{border-left:3px solid var(--ac);border-radius:4px 12px 12px 4px}
+#banner.pop{animation:ban .45s ease}
+#score{display:inline-block;font-weight:700}#score.bump{animation:bump .5s}
+.menu button,.menu button.pri{display:grid;grid-template-columns:2.6rem 1fr;align-items:center;column-gap:10px;border-radius:16px;background:var(--sf);color:var(--tx);border-color:var(--bd);animation:rise .6s both}
+.menu button:nth-child(2){animation-delay:.08s}.menu button:nth-child(3){animation-delay:.16s}.menu button:nth-child(4){animation-delay:.24s}
+.menu small{grid-column:2}
+.menu button::before{font:700 1.8rem "Shippori Mincho",serif;color:var(--ac);text-align:center;grid-row:span 2;transition:transform .4s}
+.menu button:hover::before{transform:rotate(-10deg) scale(1.2)}
+.menu button:nth-child(1)::before{content:"配"}.menu button:nth-child(2)::before{content:"記"}.menu button:nth-child(3)::before{content:"遊"}.menu button:nth-child(4)::before{content:"結"}
+.disk{padding:12px;border-radius:20px;background:repeating-linear-gradient(92deg,transparent 0 7px,rgba(0,0,0,.035) 7px 8px),linear-gradient(145deg,var(--tray),var(--tray2));box-shadow:0 16px 30px -16px rgba(60,40,20,.55),inset 0 1px 0 rgba(255,255,255,.25)}
+.b{border-radius:11px;box-shadow:inset 0 -3px 0 rgba(0,0,0,.14),0 1px 2px rgba(60,45,30,.2)}
+.b.log{color:#6e5520}.b.log.on{color:#3a2e12;animation:glow 2.6s ease-in-out infinite}.b.log.on i{color:#3a2e12}
+.b.corrompido{animation:warn 1.5s ease-in-out infinite}
+.disk.enter .b{animation:rise .6s both;animation-delay:calc(var(--i)*22ms)}
+.disk .b.sel{border-color:transparent;outline:2px solid var(--tx);outline-offset:2px;animation:popc .7s cubic-bezier(.3,1.6,.5,1)}
+.disk .b.sel::after{content:"";position:absolute;inset:0;border-radius:inherit;border:2px solid var(--tx);animation:rip .9s ease-out 2}
+.flash .disk{animation:sh2 .08s 9}
+body.flash::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:8;background:radial-gradient(circle,transparent 30%,rgba(180,84,58,.5));animation:fl .7s ease-out}
+.petal{position:fixed;top:-20px;width:10px;height:14px;border-radius:70% 0 70% 0;opacity:.85;pointer-events:none;z-index:7;animation:fall linear forwards}
+@keyframes in{from{opacity:0;transform:translateY(14px)}}
+@keyframes rise{from{opacity:0;transform:translateY(14px) scale(.85)}}
+@keyframes popc{0%{transform:scale(.7)}60%{transform:scale(1.15)}}
+@keyframes rip{from{transform:scale(1);opacity:.7}to{transform:scale(1.9);opacity:0}}
+@keyframes glow{50%{box-shadow:0 0 14px 2px rgba(214,169,90,.7)}}
+@keyframes warn{50%{filter:brightness(1.25);transform:scale(.93)}}
+@keyframes pulse{50%{box-shadow:0 0 0 7px rgba(138,106,74,.22)}}
+@keyframes drift{to{transform:translate(4%,3%) scale(1.1)}}
+@keyframes spin{to{transform:rotate(360deg)}}
+@keyframes ban{from{opacity:0;transform:translateY(6px)}}
+@keyframes bump{40%{transform:scale(1.35);color:var(--ac)}}
+@keyframes sh2{25%{transform:translate(-6px,2px) rotate(-.7deg)}75%{transform:translate(6px,-2px) rotate(.7deg)}}
+@keyframes fl{from{opacity:1}to{opacity:0}}
+@keyframes fall{to{transform:translate(var(--dx),105vh) rotate(540deg);opacity:.2}}
+/* ===== NEO-BRUTALISTA + XP/WIN7 ===== */
+:root,:root:not([data-theme="light"]),:root[data-theme="dark"]{--bg:#ffd21f;--sf:#fdfbf7;--tx:#111;--mt:#555;--bd:#111;--free:#e8e4da;--dat:#3fc23c;--idx:#7b68ff;--log:#ffd21f;--logd:#fff0a0;--bad:#ff3b5c;--ok:#1f8a2a;--ac:#ffd21f;color-scheme:light}
+body{font-family:Tahoma,"Segoe UI",Verdana,sans-serif;color:#111;background:radial-gradient(circle at 0% 22%,#ff4f7b 0 130px,transparent 131px) no-repeat,linear-gradient(160deg,transparent 80%,#7b68ff 80%) no-repeat,#ffd21f;background-attachment:fixed}
+body::before{display:none}
+h1,h3{font-family:"Archivo Black",Impact,"Arial Black",sans-serif;font-weight:400;letter-spacing:0}
+h1{font-size:1.7rem}h1::before{background:#ff4f7b;border:3px solid #111;border-radius:50%;animation:bob 2.4s ease-in-out infinite}
+.lead{font:600 1.05rem/1.5 Tahoma,"Segoe UI",sans-serif;color:#111}
+header{max-width:980px;width:calc(100% - 24px);margin:14px auto;border:0;padding:0}
+main{max-width:980px;width:calc(100% - 24px);margin:0 auto 90px;padding:0;background:var(--sf);border:3px solid #111;border-radius:12px 12px 6px 6px;box-shadow:8px 8px 0 #111;overflow:hidden}
+.wc{padding:16px}.wc>section{animation:win .45s cubic-bezier(.2,1.4,.4,1)}
+.tb{display:flex;justify-content:space-between;align-items:center;padding:6px 8px 6px 12px;background:linear-gradient(#3d95ff,#0a5be0 12%,#0553d4 88%,#0a3fb0);color:#fff;font:700 .9rem Tahoma,"Segoe UI",sans-serif;border-bottom:3px solid #111;text-shadow:1px 1px 0 #002a7a}
+.wb b{display:inline-grid;place-items:center;width:26px;height:26px;margin-left:4px;border:2px solid #fff;border-radius:5px;background:linear-gradient(#5aa5ff,#1b64e6);font-size:.8rem;cursor:default}.wb .x{background:linear-gradient(#f08a6a,#d6401f);cursor:pointer}
+button{border:3px solid #111;border-radius:10px;background:linear-gradient(#fff,#ececec 50%,#d8d8d8 51%,#e6e6e6);color:#111;font-weight:700;box-shadow:3px 3px 0 #111}
+button:hover:not(:disabled){transform:translate(-1px,-1px);box-shadow:5px 5px 0 #111;border-color:#111}
+button:active:not(:disabled){transform:translate(3px,3px);box-shadow:0 0 0 #111}
+button:disabled{box-shadow:2px 2px 0 #111;opacity:.5}
+button.pri{background:linear-gradient(#ffe36b,#ffd21f 50%,#f5c400 51%,#ffd21f);color:#111;border-color:#111}
+button.dng{background:linear-gradient(#ff7d97,#ff3b5c 50%,#e62648 51%,#ff3b5c);color:#fff;border-color:#111;text-shadow:1px 1px 0 #8a0f28}
+button.ghost{background:#fff;border-color:#111}
+input,select{border:3px solid #111;border-radius:8px;background:#fff;box-shadow:inset 2px 2px 0 rgba(0,0,0,.12)}
+.card{background:#fff;border:3px solid #111;border-radius:14px;box-shadow:6px 6px 0 #111}
+.menu{max-width:none;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:26px 20px;padding-top:18px}
+.menu button,.menu button.pri{position:relative;grid-template-columns:52px 1fr;background:#fff;color:#111;border:3px solid #111;box-shadow:6px 6px 0 #111;font-weight:800;font-size:1.05rem;text-align:left}
+.menu button:hover{box-shadow:8px 8px 0 #111}.menu button:active{box-shadow:1px 1px 0 #111}
+.menu small{font-weight:500;font-size:.8rem;color:#555}
+.menu button::before{width:46px;height:46px;display:grid;place-items:center;font-size:1.4rem;border:3px solid #111;border-radius:8px;background:var(--c)}
+.menu button::after{content:"";position:absolute;top:-16px;left:16px;width:72px;height:16px;border:3px solid #111;border-bottom:0;border-radius:8px 8px 0 0;background:var(--c)}
+.menu button:nth-child(1){--c:#3fc23c}.menu button:nth-child(2){--c:#ff4f7b}.menu button:nth-child(3){--c:#7b68ff}.menu button:nth-child(4){--c:#ffd21f}
+.menu button:nth-child(1)::before{content:"🗂️"}.menu button:nth-child(2)::before{content:"📝"}.menu button:nth-child(3)::before{content:"🧪"}.menu button:nth-child(4)::before{content:"📊"}
+.disk{background:#fff;border:3px solid #111;border-radius:12px;padding:10px;gap:6px;box-shadow:5px 5px 0 #111}
+.b{border:2px solid #111;border-radius:7px;box-shadow:2px 2px 0 #111;color:#111;font-weight:800}
+.b i,.b.dados i,.b.indice i,.b.corrompido i,.b.log.on i{color:#111;opacity:.65}
+.b.indice,.b.corrompido{color:#fff}.b.log,.b.log.on{color:#111}
+.disk .b.sel{border-color:#111;outline:3px solid #111;outline-offset:2px}
+#banner{background:#fff6b8;border:3px solid #111;border-radius:8px;box-shadow:4px 4px 0 #111;font-weight:600}#banner::before{content:"💡 "}
+.legend{color:#111;font-weight:600}.legend s{border:2px solid #111;border-radius:3px}
+#score{background:#fff;border:3px solid #111;border-radius:8px;padding:2px 10px;box-shadow:3px 3px 0 #111}#score:empty{display:none}
+th{background:#ffd21f}td,th{border:2px solid #111}
+.key{background:#e4ffe0;border:3px solid #111;border-left-width:10px;border-radius:8px;box-shadow:3px 3px 0 #111}
+code{background:#fff0a0;border:1px solid #111}
+#taskbar{position:fixed;left:0;right:0;bottom:0;z-index:6;height:calc(46px + env(safe-area-inset-bottom,0px));padding:0 6px env(safe-area-inset-bottom,0px) 0;display:flex;align-items:center;gap:8px;background:linear-gradient(#3f8cf3,#245edb 10%,#245edb 90%,#1941a5);border-top:3px solid #111}
+#taskbar .start{min-height:38px;padding:0 18px;background:linear-gradient(#5fd35a,#3c9a2f 55%,#2f8a25);color:#fff;font:italic 800 1.05rem Tahoma,sans-serif;border:3px solid #111;border-left:0;border-radius:0 18px 18px 0;box-shadow:none;text-shadow:1px 1px 0 #145a10}
+.task,#clock{border:2px solid #111;border-radius:6px;color:#fff;padding:4px 12px;font:600 .85rem Tahoma,sans-serif;white-space:nowrap}
+.task{background:#1b4fc4;flex:1;max-width:260px;overflow:hidden;text-overflow:ellipsis;box-shadow:inset 1px 1px 0 rgba(255,255,255,.4)}
+#clock{margin-left:auto;background:#0f9bd7}
+#modal{background:rgba(17,17,17,.5)}#mbox{background:var(--sf);border:3px solid #111;border-radius:12px;box-shadow:8px 8px 0 #111;animation:win .35s cubic-bezier(.2,1.4,.4,1)}
+body.flash::after{background:#0000aa;color:#fff;font:700 clamp(11px,2.6vw,18px)/1.5 "Courier New",monospace;white-space:pre-wrap;padding:8vh 8vw;content:"Um problema foi detectado e o disco foi desligado para evitar danos.\A\A POWER_LOSS_DURING_WRITE\A\A *** STOP: 0x0000009C (0xFFFFFFFF)\A\A Reiniciando…";animation:bs .7s linear forwards}
+.petal{width:10px;height:10px;border:2px solid #111;border-radius:2px}
+@keyframes win{from{opacity:0;transform:scale(.93) translateY(12px)}}
+@keyframes bob{50%{transform:translateY(-4px)}}
+@keyframes bs{0%,90%{opacity:1}100%{opacity:0}}
+@keyframes pulse{50%{box-shadow:3px 3px 0 #111,0 0 0 8px rgba(255,210,31,.6)}}
+@keyframes bump{40%{transform:scale(1.3) rotate(-3deg);background:#ffd21f}}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}
+</style></head><body>
+<header><h1>💽 Disco Sob Ameaça</h1><button class="ghost" onclick="help()">Como jogar</button></header>
+<main><div class="tb"><span class="ti">💽 DiscoSobAmeaça.exe</span><span class="wb"><b>–</b><b>▢</b><b class="x" onclick="toMenu()">✕</b></span></div><div class="wc">
+<section id="menu">
+<p class="lead">Um disco, duas missões: entenda como arquivos ocupam blocos e como o sistema sobrevive a quedas de energia.</p>
+<div class="menu">
+<button class="pri" onclick="startA()">Modo A: Alocação<small>Contígua, encadeada ou indexada</small></button>
+<button class="pri" onclick="startB()">Modo B: Journaling<small>Registre no log, commite e sobreviva à queda</small></button>
+<button onclick="startS()">Modo Livre / Sandbox<small>Explore sem roteiro</small></button>
+<button onclick="showResult()">Ver resultado comparativo</button>
+</div></section>
+<section id="game" hidden>
+<div class="top"><button class="ghost" onclick="toMenu()">← Menu</button><b id="gtitle"></b><span id="score"></span></div>
+<div id="disk" class="disk"></div>
+<div id="banner" role="status" aria-live="polite"></div>
+<div class="legend"><span><s style="background:var(--free)"></s>Livre</span><span><s style="background:var(--dat)"></s>Dados</span><span><s style="background:var(--idx)"></s>Índice</span><span><s style="background:var(--log)"></s>Log</span><span><s style="background:var(--bad)"></s>Corrompido</span><span><s style="border:2px solid var(--tx)"></s>Em foco</span></div>
+<div class="cols"><div id="panel" class="card"></div><aside id="learn" class="card"></aside></div>
+</section>
+<section id="result" hidden></section>
+</div></main>
+<div id="taskbar"><button class="start" onclick="startMenu()">⊞ Iniciar</button><span class="task" id="tk">Menu principal</span><span id="clock"></span></div>
+<div id="modal" hidden><div id="mbox"></div></div>
+<script>
+const N=32,LOG0=28,$=id=>document.getElementById(id);
+const NOME={contigua:"Contígua",encadeada:"Encadeada",indexada:"Indexada"};
+const DICA={contigua:"Alocação contígua exige blocos vizinhos: se não houver sequência livre, o arquivo não cabe.",encadeada:"Alocação encadeada usa um ponteiro em cada bloco: bom para crescer, ruim para acesso aleatório.",indexada:"Alocação indexada reserva um bloco só de ponteiros: acesso direto, mas gasta um bloco extra."};
+const LEARN={A:"<h3>Saiba mais · xv6</h3><p>O xv6 usa alocação <b>indexada</b>: o inode guarda ponteiros diretos e indiretos, e <code>bmap()</code> em <code>fs.c</code> traduz o número do bloco lógico para o bloco físico.</p>",
+B:"<h3>Saiba mais · xv6</h3><p>Veja <code>kernel/log.c</code>: <code>write_log()</code> copia para o log, <code>commit()</code> grava o cabeçalho e <code>recover_from_log()</code> reaplica no boot. O <code>bio.c</code> (buffer cache) faz a ponte com o disco.</p><p>O log é uma área reservada: só depois do commit os dados vão para o lugar definitivo. <code>begin_op/end_op</code> delimitam a transação.</p>",
+S:"<h3>Saiba mais · xv6</h3><p>Escolha a estratégia, ligue ou desligue o log e simule quedas a qualquer momento. Sem log, uma queda no meio de uma escrita deixa blocos inconsistentes.</p><p>Indexada: <code>bmap()</code> em <code>fs.c</code>. Log: <code>log.c</code>.</p>"};
+let D,MODE,A,B,S,resA=null,resB=null,timer=null;
+const clone=d=>d.map(b=>({...b})),sl=ms=>new Promise(r=>setTimeout(r,ms));
+const blank=i=>({id:i,estado:i>=LOG0?"log":"livre",dono:null,usado:false});
+function newDisk(pre){D=Array.from({length:N},(_,i)=>blank(i));if(pre)[3,4,8,9,10,15,16,20,21,25].forEach(i=>{D[i].estado="dados";D[i].dono="sistema"})}
+function drawDisk(el,d,hl=[]){el.innerHTML=d.map(b=>`<div class="b ${b.estado}${b.usado?" on":""}${hl.includes(b.id)?" sel":""}" title="${b.dono||"livre"}" style="--i:${b.id}"><i>${b.id}</i><span>${b.dono?b.dono[0].toUpperCase():""}</span></div>`).join("")}
+const render=(hl=[])=>drawDisk($("disk"),D,hl);
+const say=t=>{const e=$("banner");e.textContent=t;e.classList.remove("pop");void e.offsetWidth;e.classList.add("pop")};
+function petals(n=18){for(let i=0;i<n;i++){const p=document.createElement("i");p.className="petal";p.style.cssText=`left:${Math.random()*100}vw;--dx:${Math.random()*160-80}px;animation-duration:${3+Math.random()*2.5}s;animation-delay:${Math.random()*.8}s;background:${["#ff4f7b","#3fc23c","#7b68ff","#ffd21f"][i%4]}`;document.body.appendChild(p);setTimeout(()=>p.remove(),6500)}}
+const show=id=>{["menu","game","result"].forEach(x=>$(x).hidden=x!==id);setTimeout(()=>$("tk").textContent={menu:"Menu principal",game:"💽 "+$("gtitle").textContent,result:"Resultado"}[id])};
+const scoreUI=()=>{const e=$("score"),t=MODE==="A"?"Pontos: "+A.score:MODE==="B"?"Pontos: "+B.score:"";if(e.textContent!==t){e.textContent=t;e.classList.remove("bump");void e.offsetWidth;e.classList.add("bump")}};
+function modal(html,btns=[{t:"Fechar"}]){$("mbox").innerHTML=html+`<div class="row">${btns.map((b,i)=>`<button class="${b.c||""}" data-i="${i}">${b.t}</button>`).join("")}</div>`;$("modal").hidden=false;$("mbox").querySelectorAll("button").forEach(el=>el.onclick=()=>{$("modal").hidden=true;const f=btns[el.dataset.i].f;f&&f()})}
+const ask=(m,f)=>modal(`<p>${m}</p>`,[{t:"Cancelar"},{t:"Confirmar",c:"pri",f}]);
+function help(){modal(`<h3>Como jogar</h3><p><b>Modo A:</b> escolha uma estratégia e aloque arquivos bloco a bloco. No fim, estime quantos acessos ao disco são necessários para ler o último bloco de foto.jpg.</p><p><b>Modo B:</b> registre as 3 suboperações no log, faça o commit e decida quando a energia cai. Teste também sem log.</p><p><b>Modo Livre:</b> aloque arquivos e simule quedas à vontade.</p><p class="mt">Cores: cinza = livre, azul = dados, roxo = índice, amarelo = log, vermelho = corrompido. A letra no bloco é a inicial do dono.</p>`)}
+function toMenu(){stopAuto();show("menu")}
+function goGame(t){show("game");const dk=$("disk");dk.classList.add("enter");setTimeout(()=>dk.classList.remove("enter"),1400);$("gtitle").textContent=t;$("learn").innerHTML=LEARN[MODE];render();scoreUI();window.scrollTo(0,0)}
+const tick=()=>{$("clock").textContent=new Date().toLocaleTimeString("pt-BR",{hour:"2-digit",minute:"2-digit"})};tick();setInterval(tick,15000);
+function startMenu(){modal("<h3>Iniciar</h3>",[{t:"Modo A: Alocação",f:startA},{t:"Modo B: Journaling",f:startB},{t:"Modo Livre",f:startS},{t:"Resultado",f:showResult},{t:"Como jogar",f:help},{t:"Fechar"}])}
+/* ---------- alocação (compartilhada) ---------- */
+function plan(s,n){const fr=D.filter(b=>b.estado==="livre"&&b.id<LOG0).map(b=>b.id);
+ if(s==="contigua"){for(let i=0;i+n<=LOG0;i++){let ok=true;for(let j=0;j<n;j++)if(D[i+j].estado!=="livre"){ok=false;i+=j;break}if(ok)return{blocks:Array.from({length:n},(_,j)=>i+j)}}return null}
+ if(s==="encadeada")return fr.length>=n?{blocks:fr.slice(0,n)}:null;
+ return fr.length>=n+1?{idx:fr[0],blocks:fr.slice(1,n+1)}:null}
+function stepsFor(s,nome,p){const bl=p.blocks,n=bl.length,st=[];
+ if(s==="indexada")st.push({b:p.idx,tipo:"idx",msg:`${nome}: bloco ${p.idx} reservado como bloco de índices.`});
+ bl.forEach((b,k)=>{let m;
+  if(s==="contigua")m=k===0?`${nome}: precisa de ${n} blocos consecutivos → encontrados em ${bl[0]}–${bl[n-1]}. Bloco ${b} alocado.`:`${nome}: bloco ${b} alocado (${k+1}/${n}).`;
+  else if(s==="encadeada")m=k<n-1?`${nome}: bloco ${b} → ponteiro para ${bl[k+1]}.`:`${nome}: bloco ${b} → fim do arquivo (ponteiro nulo).`;
+  else m=`${nome}: bloco de índices em ${p.idx} aponta para ${bl.slice(0,k+1).join(", ")}.`;
+  st.push({b,tipo:"dado",msg:m})});return st}
+const apply=(x,nome)=>D[x.b]={id:x.b,estado:x.tipo==="idx"?"indice":"dados",dono:nome,usado:false};
+function defrag(files){const old=D.slice(0,LOG0).filter(b=>b.estado!=="livre").map(b=>({...b})),map={};
+ for(let i=0;i<LOG0;i++)D[i]=blank(i);old.forEach((b,i)=>{map[b.id]=i;D[i]={...b,id:i}});
+ files.forEach(f=>{f.blocks=f.blocks.map(x=>map[x]);if(f.idx!=null)f.idx=map[f.idx]})}
+const cost=(s,n)=>s==="contigua"?1:s==="encadeada"?n:2;
+/* ---------- MODO A ---------- */
+function startA(){stopAuto();newDisk(true);MODE="A";A={strat:null,queue:[{nome:"relatorio.txt",n:3},{nome:"foto.jpg",n:5},{nome:"log.txt",n:2},{nome:"video.mp4",n:4}],qi:0,cur:null,files:[],score:0,phase:"alloc",defrag:false,stuck:false,answered:false};goGame("Modo A · Alocação");say("Escolha uma estratégia para começar.");panelA()}
+function pickA(s){A.strat=s;say(DICA[s]);panelA()}
+function panelA(){const p=$("panel");
+ if(!A.strat){p.innerHTML=`<h3>Escolha a estratégia</h3><div class="row">${Object.keys(NOME).map(s=>`<button class="pri" onclick="pickA('${s}')">${NOME[s]}</button>`).join("")}</div><p class="mt">Fila: ${A.queue.map(f=>f.nome+" ("+f.n+")").join(", ")}. Os blocos cinza-azulados com “S” já pertencem ao sistema.</p>`;return}
+ const f=A.queue[A.qi];
+ if(A.phase==="alloc"){p.innerHTML=`<h3>Estratégia: ${NOME[A.strat]}</h3><p>Arquivo atual: <b>${A.cur?A.cur.nome:f.nome}</b> (${(A.cur||f).n} blocos) · ${A.qi}/${A.queue.length} concluídos</p><div class="row"><button class="pri" onclick="nxtA()">Alocar próximo bloco</button><button onclick="autoA()">${timer?"Pausar":"Automático"}</button><button onclick="defragA()" ${A.stuck?"":"hidden"}>Desfragmentar</button><button onclick="rstA()">Reiniciar</button></div><p class="mt">${DICA[A.strat]}</p>`}
+ else if(A.phase==="challenge"){const foto=A.files.find(x=>x.nome==="foto.jpg");p.innerHTML=`<h3>Desafio final</h3><p>Quantos acessos ao disco são necessários para ler o <b>último</b> bloco de foto.jpg (${foto.n} blocos, ${NOME[A.strat].toLowerCase()})?</p><div class="row"><input id="gs" type="number" min="1" max="20" inputmode="numeric" style="width:90px"><button class="pri" onclick="guessA()">Responder</button></div>`;render(foto.blocks.concat(foto.idx??[]))}
+ else p.innerHTML=`<h3>Modo A concluído</h3><p>Pontuação: <b>${A.score}</b>.</p><div class="row"><button class="pri" onclick="showResult()">Ver resultado</button><button onclick="startA()">Jogar de novo</button></div>`}
+function nxtA(){if(A.phase!=="alloc")return;
+ if(!A.cur){const f=A.queue[A.qi],p=plan(A.strat,f.n);
+  if(!p){stopAuto();A.stuck=A.strat==="contigua";say(`“${f.nome}” (${f.n} blocos) não cabe: ${A.strat==="contigua"?"não há "+f.n+" blocos consecutivos livres (fragmentação externa). Desfragmente e tente de novo.":"não há blocos livres suficientes."}`);panelA();return}
+  A.cur={...f,p,steps:stepsFor(A.strat,f.nome,p),si:0}}
+ const c=A.cur,s=c.steps[c.si++];apply(s,c.nome);render([s.b]);let m=s.msg;
+ if(c.si>=c.steps.length){A.files.push({nome:c.nome,n:c.n,blocks:c.p.blocks,idx:c.p.idx});A.score+=10+(A.defrag?0:10);A.cur=null;A.qi++;A.stuck=false;m+=" ✔ Arquivo concluído.";
+  if(A.qi>=A.queue.length){stopAuto();A.phase="challenge"}}
+ say(m);scoreUI();panelA()}
+function autoA(){if(timer)stopAuto();else{timer=setInterval(nxtA,900);nxtA()}panelA()}
+function stopAuto(){clearInterval(timer);timer=null}
+function defragA(){defrag(A.files);A.defrag=true;A.stuck=false;render();say("Disco desfragmentado: blocos usados agora ficam juntos no início. Sem bônus de “sem desfragmentar” nos próximos arquivos.");panelA()}
+function rstA(){stopAuto();ask("Reiniciar a partida? O progresso será perdido.",startA)}
+function guessA(){const v=+$("gs").value;if(!v)return;const foto=A.files.find(x=>x.nome==="foto.jpg"),c=cost(A.strat,foto.n),ok=v===c;if(ok){A.score+=50;petals()}
+ const why={contigua:"o endereço do bloco é calculado diretamente: 1 acesso.",encadeada:"é preciso seguir os ponteiros desde o primeiro bloco: "+foto.n+" acessos.",indexada:"1 acesso ao bloco de índices + 1 ao bloco de dados = 2."}[A.strat];
+ say(`${ok?"Acertou! ✔ +50":"Resposta real: "+c+"."} Na ${NOME[A.strat].toLowerCase()}, ${why}`);
+ A.phase="done";resA={disk:clone(D),strat:A.strat,used:A.files.reduce((a,f)=>a+f.n+(f.idx!=null?1:0),0),cost:c,score:A.score,defrag:A.defrag};scoreUI();panelA()}
+/* ---------- MODO B ---------- */
+function clearLog(){for(let i=LOG0;i<N;i++)D[i]=blank(i)}
+const applySub=s=>D[s.b]={id:s.b,estado:s.t==="inode"?"indice":"dados",dono:"arqA",usado:false};
+function startB(){stopAuto();newDisk(false);MODE="B";B={r:0,crashes:0,ok:0,bad:0,score:0};goGame("Modo B · Journaling");newOp()}
+function newOp(){const r=B.r;B.subs=[{t:"dado",b:10+3*r},{t:"dado",b:11+3*r},{t:"inode",b:r}];Object.assign(B,{lg:0,cm:false,ap:0,over:false,busy:false,useLog:true,started:false});clearLog();render();
+ say(`Operação ${r+1}/3: escrever 2 blocos no arquivo A e atualizar o inode (3 suboperações). Registre no log!`);panelB()}
+function panelB(){const L=B.useLog,p=$("panel"),n=B.subs.length;
+ if(B.over){p.innerHTML=`<h3>Operação ${B.r+1}/3 encerrada</h3><p>Consistentes: ${B.ok} · Corrompidas: ${B.bad}</p><div class="row">${B.r<2?`<button class="pri" onclick="B.r++;newOp()">Próxima operação</button>`:`<button class="pri" onclick="finishB()">Ver resultado</button>`}<button onclick="startB()">Reiniciar</button></div>`;return}
+ const d=B.busy?"disabled":"";
+ p.innerHTML=`<h3>Operação ${B.r+1}/3</h3><p class="chips">${L?`log: <b>${B.lg}/${n}</b> · commit: ${B.cm?"feito":"pendente"}`:`aplicadas direto: <b>${B.ap}/${n}</b> (sem log)`}</p>
+ <label class="chips"><input type="checkbox" ${L?"checked":""} ${B.started?"disabled":""} onchange="B.useLog=this.checked;panelB()"> Usar log</label>
+ <div class="row">${L?`<button class="pri" ${d} ${B.cm||B.lg>=n&&n<=B.lg&&B.lg<B.subs.length?"disabled":""} onclick="regB()" ${B.cm||B.lg>=n?"disabled":""}>Registrar no log</button><button class="pri go" onclick="commitB()" ${B.lg===n&&!B.cm&&!B.busy?"":"disabled"}>Commit</button>${B.cm?`<button ${d} onclick="instB()">Concluir (instalar)</button>`:`<button ${d} onclick="extraB()">+ escrita extra</button>`}`:`<button class="pri" ${d} onclick="wrB()">Escrever direto no bloco</button>`}<button class="dng" ${d} onclick="crashB()">⚡ Simular queda agora!</button></div>
+ <p class="mt">O Commit só habilita quando todas as suboperações estão no log.</p>`}
+function regB(){if(B.over||B.busy||B.cm)return;B.started=true;
+ if(B.lg>=4&&B.lg<B.subs.length){B.subs.splice(B.lg);say("Log cheio (4 blocos): o xv6 força commit antes de continuar (begin_op/end_op). Faça o commit.");panelB();return}
+ const s=B.subs[B.lg],slot=LOG0+B.lg;D[slot]={id:slot,estado:"log",dono:s.t,usado:true};B.lg++;render([slot]);say(`Suboperação ${B.lg} gravada no log (bloco de log ${slot}).`);panelB()}
+function extraB(){if(B.over||B.busy||B.cm)return;B.started=true;if(B.subs.length>=5){say("Limite de escritas por transação atingido.");return}
+ B.subs.push({t:"dado",b:17+3*B.r+B.subs.length});say(`Escrita extra adicionada (${B.subs.length} suboperações). O log só comporta 4 blocos: se passar disso, ele enche.`);
+ if(B.lg>=4&&B.lg<B.subs.length){regB();return}panelB()}
+function commitB(){B.cm=true;B.started=true;say(`Commit gravado: cabeçalho do log registra ${B.subs.length} blocos. A operação já é durável, mesmo que a energia caia.`);panelB()}
+function endB(sc,msg){B.over=true;B.busy=false;B.score+=sc;say(msg);scoreUI();panelB()}
+function instB(){B.subs.forEach(applySub);clearLog();render(B.subs.map(s=>s.b));endB(20,"Operação concluída: dados nos blocos definitivos e log liberado (end_op).");B.ok++}
+function wrB(){B.started=true;const s=B.subs[B.ap++];applySub(s);render([s.b]);say(`Bloco ${s.b} escrito direto no disco (${s.t==="inode"?"inode":"dados"}). Sem log, nada protege o intervalo até terminar.`);
+ if(B.ap>=B.subs.length)return endB(10,"Operação concluída sem queda, por sorte. Sem log, o risco ficou o tempo todo.");panelB()}
+async function crashB(){if(B.over||B.busy)return;B.started=true;B.crashes++;B.busy=true;panelB();say("⚡ QUEDA DE ENERGIA!");document.body.classList.add("flash");await sl(700);document.body.classList.remove("flash");
+ if(B.useLog){
+  if(!B.cm){clearLog();render();B.ok++;return endB(10,"Sem commit, o recovery ignora o log: nada foi aplicado. Disco consistente, operação perdida.")}
+  say("Reiniciando… recovery lê o cabeçalho do log e encontra o commit.");await sl(900);
+  for(const s of B.subs){applySub(s);render([s.b]);say(`Recovery reaplica ${s.t==="inode"?"o inode":"o dado"} no bloco ${s.b}.`);await sl(800)}
+  clearLog();render();B.ok++;petals(10);return endB(25,"Log marcado como livre. Disco consistente, operação preservada.")}
+ if(B.ap===0){B.ok++;return endB(5,"Nada tinha sido escrito ainda: disco consistente, mas só por sorte.")}
+ for(let i=0;i<B.ap;i++)D[B.subs[i].b]={...D[B.subs[i].b],estado:"corrompido"};render(B.subs.slice(0,B.ap).map(s=>s.b));B.bad++;
+ endB(0,"Sem log, a queda deixou a operação pela metade: blocos novos sem o inode e o bitmap correspondentes. Disco corrompido.")}
+function finishB(){resB={disk:clone(D),crashes:B.crashes,ok:B.ok,bad:B.bad,score:B.score};showResult()}
+/* ---------- SANDBOX ---------- */
+function startS(){stopAuto();newDisk(true);MODE="S";S={strat:"indexada",log:true,files:[],n:0};goGame("Modo Livre");say("Aloque arquivos e simule quedas quando quiser.");panelS()}
+function panelS(){$("panel").innerHTML=`<h3>Laboratório</h3><div class="row"><select onchange="S.strat=this.value">${Object.keys(NOME).map(k=>`<option value="${k}" ${S.strat===k?"selected":""}>${NOME[k]}</option>`).join("")}</select><label class="chips"><input type="checkbox" ${S.log?"checked":""} onchange="S.log=this.checked"> Log ligado</label></div><div class="row"><input id="sz" type="number" min="1" max="10" value="3" inputmode="numeric" style="width:80px" aria-label="Tamanho em blocos"><button class="pri" onclick="allocS()">Alocar arquivo</button><button class="dng" onclick="crashS()">⚡ Simular queda</button><button onclick="defragS()">Desfragmentar</button><button onclick="startS()">Resetar</button></div>`}
+function allocS(){const n=Math.max(1,Math.min(10,+$("sz").value||3)),p=plan(S.strat,n),nome="arq"+(S.n+1);
+ if(!p){say(`${nome} (${n} blocos) não cabe com a alocação ${NOME[S.strat].toLowerCase()}.${S.strat==="contigua"?" Tente desfragmentar.":""}`);return}
+ S.n++;const st=stepsFor(S.strat,nome,p);st.forEach(x=>apply(x,nome));S.files.push({nome,n,blocks:p.blocks,idx:p.idx});render(p.blocks.concat(p.idx??[]));say(st[0].msg+" "+DICA[S.strat])}
+function defragS(){defrag(S.files);render();say("Disco desfragmentado.")}
+function crashS(){const f=S.files[S.files.length-1];if(!f){say("Aloque um arquivo antes de simular a queda.");return}
+ if(S.log){say("⚡ Queda! O log protegeu a operação: se houve commit, o recovery reaplica; se não, descarta. Disco consistente.");return}
+ const b=f.blocks[f.blocks.length-1];D[b].estado="corrompido";render([b]);say(`⚡ Queda sem log! O bloco ${b} de ${f.nome} ficou escrito sem os metadados atualizados: disco corrompido.`)}
+/* ---------- RESULTADO ---------- */
+function showResult(){stopAuto();show("result");petals(12);
+ const dA=resA?resA.disk:null,dB=resB?resB.disk:null,e=`<p class="mt">Jogue este modo até o fim para ver o disco.</p>`;
+ $("result").innerHTML=`<div class="top"><button class="ghost" onclick="toMenu()">← Menu</button><b>Resultado</b><span></span></div>
+ <div class="res"><div class="card"><h3>Modo A${resA?" · "+NOME[resA.strat]:""}</h3>${dA?'<div class="disk" id="rA"></div><p class="mt">Blocos gastos: '+resA.used+" · acessos ao último bloco de foto.jpg: "+resA.cost+" · pontos: "+resA.score+"</p>":e}</div>
+ <div class="card"><h3>Modo B · Journaling</h3>${dB?'<div class="disk" id="rB"></div><p class="mt">Quedas: '+resB.crashes+" · consistentes: "+resB.ok+" · corrompidas: "+resB.bad+" · pontos: "+resB.score+"</p>":e}</div></div>
+ <div class="card" style="margin-top:14px"><h3>1. Qual estratégia gastou menos blocos? Qual deu acesso mais rápido?</h3><table><tr><th>Estratégia</th><th>Blocos (arquivo de 5)</th><th>Acessos ao último bloco</th></tr><tr><td>Contígua</td><td>5</td><td>1</td></tr><tr><td>Encadeada</td><td>5</td><td>5</td></tr><tr><td>Indexada</td><td>6</td><td>2</td></tr></table>
+ <h3 style="margin-top:14px">2. Quantas quedas deixaram o disco consistente? Por quê?</h3><p>${resB?`${resB.ok} de ${resB.crashes} quedas deixaram o disco consistente. Com log, a queda antes do commit descarta a operação e depois do commit o recovery a reaplica; sem log, uma queda no meio corrompe.`:"Jogue o Modo B para ver sua resposta."}</p>
+ <h3>3. Por que o xv6 usa indexada e log ao mesmo tempo?</h3><div class="key">A alocação indexada dá acesso direto e permite arquivos crescerem sem fragmentação externa; o log garante que as várias escritas dessa estrutura (dados, inode, bitmap) aconteçam por inteiro ou não aconteçam.</div>
+ <div class="row"><button class="pri" onclick="toMenu()">Jogar de novo</button><button onclick="toMenu()">Voltar ao menu</button><button onclick="just()">Ver justificativa técnica</button></div></div>`;
+ if(dA)drawDisk($("rA"),dA);if(dB)drawDisk($("rB"),dB)}
+function just(){modal(`<h3>Justificativa técnica</h3><p>O jogo mostra um disco único em dois modos para ligar duas ideias: como os dados ocupam blocos (contígua, encadeada, indexada) e como o sistema mantém consistência (log transacional do xv6, <code>log.c</code>).</p><p><b>Heurísticas de Nielsen:</b></p><p>#1 Visibilidade: disco colorido, contador “log: x/y” e faixa de frase. #2 Mundo real: blocos, queda de energia, commit. #3 Controle: Pausar, Reiniciar, Menu e queda a qualquer momento. #4 Consistência: mesmo disco, cores e botões. #5 Prevenção de erros: Commit só habilita com log completo e confirmação antes de reiniciar. #6 Reconhecer: legenda fixa e painel “Saiba mais”. #7 Flexibilidade: modo guiado e Modo Livre. #8 Minimalismo: uma tela, um disco, uma faixa. #9 Diagnóstico: blocos vermelhos com explicação. #10 Ajuda: “Como jogar” e esta justificativa.</p>`)}
+</script></body></html>
